@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="header__top-content">
+                <div class="header__contacts">
+                    <a href="tel:+77271234567" class="header__contact-item">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M14.5 11.5L12.5 9.5C12.2 9.2 11.7 9.1 11.3 9.3L9.8 10.1C9.1 9.7 8.3 9.3 7.5 8.9C6.7 8.1 6.3 7.3 5.9 6.6L6.7 5.1C6.9 4.7 6.8 4.2 6.5 3.9L4.5 1.9C4.2 1.6 3.7 1.5 3.3 1.7L1.5 2.5C1.1 2.7 0.8 3.1 0.8 3.6C0.8 9.2 5.2 13.6 10.8 13.6C11.3 13.6 11.7 13.3 11.9 12.9L12.7 11.1C12.9 10.7 12.8 10.2 12.5 9.9L14.5 11.5Z" fill="currentColor"/>
+                        </svg>
+                        +7 (727) 123-45-67
+                    </a>
+                    <a href="mailto:info@enic.kz" class="header__contact-item">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M14 3H2C1.4 3 1 3.4 1 4V12C1 12.6 1.4 13 2 13H14C14.6 13 15 12.6 15 12V4C15 3.4 14.6 3 14 3ZM13.4 4L8 8.5L2.6 4H13.4ZM2 12V4.8L7.7 9.4C7.8 9.5 7.9 9.5 8 9.5C8.1 9.5 8.2 9.5 8.3 9.4L14 4.8V12H2Z" fill="currentColor"/>
+                        </svg>
+                        info@enic.kz
+                    </a>
+                </div>
+                <div class="header__top-right">
+                    <button class="accessibility-btn" id="accessibilityToggle" aria-label="Версия для слабовидящих">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2ZM10 16C6.69 16 4 13.31 4 10C4 6.69 6.69 4 10 4C13.31 4 16 6.69 16 10C16 13.31 13.31 16 10 16Z" fill="currentColor"/>
+                            <path d="M10 6C8.34 6 7 7.34 7 9C7 10.66 8.34 12 10 12C11.66 12 13 10.66 13 9C13 7.34 11.66 6 10 6ZM10 10C9.45 10 9 9.55 9 9C9 8.45 9.45 8 10 8C10.55 8 11 8.45 11 9C11 9.55 10.55 10 10 10Z" fill="currentColor"/>
+                        </svg>
+                        <span data-translate="accessibility">Версия для слабовидящих</span>
+                    </button>
+                    <div class="language-switcher">
+                        <button class="language-switch" data-lang="kk">ҚАЗ</button>
+                        <button class="language-switch" data-lang="ru">РУС</button>
+                        <button class="language-switch" data-lang="en">ENG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__main">
+        <div class="container">
+            <div class="header__main-content">
+                <a href="index.html" class="header__logo">
+                    <img src="images/logo.svg" alt="ENIC" width="120" height="40">
+                </a>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li><a href="index.html" data-translate="home">Главная</a></li>
+                        <li><a href="recognition.html" data-translate="recognition">Признание</a></li>
+                        <li><a href="accreditation.html" data-translate="accreditation">Аккредитация</a></li>
+                        <li><a href="bologna.html" data-translate="bologna">Болонский процесс</a></li>
+                        <li><a href="news.html" data-translate="news">Новости</a></li>
+                        <li><a href="contacts.html" data-translate="contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="header__actions">
+                    <a href="application.html" class="btn btn-primary1" data-translate="apply">Подать заявку</a>
+                    <button class="header__menu-toggle" aria-label="Меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<style>
+/* Основные стили шапки */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+}
+
+/* Верхняя часть шапки */
+.header__top {
+    background: var(--color-primary);
+    padding: 8px 0;
+    color: #fff;
+}
+
+.header__top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__contacts {
+    display: flex;
+    gap: 24px;
+}
+
+.header__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.header__contact-item:hover {
+    opacity: 0.8;
+}
+
+.header__top-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Основная часть шапки */
+.header__main {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(26, 59, 110, 0.08);
+    padding: 16px 0;
+}
+
+.header__main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.header__logo img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s;
+}
+
+.header__logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Навигация */
+.header__nav {
+    flex: 1;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__menu a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.header__menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    transition: width 0.3s;
+}
+
+.header__menu a:hover {
+    color: var(--color-secondary);
+}
+
+.header__menu a:hover::after {
+    width: 100%;
+}
+
+/* Кнопки и действия */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-primary1 {
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-primary1:hover {
+    background: #E55A2A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+/* Переключатель языка */
+.language-switcher {
+    display: flex;
+    background: var(--color-secondary);
+    padding: 4px;
+    border-radius: 6px;
+    gap: 4px;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+}
+
+.language-switch {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 4px 8px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    min-width: 40px;
+    text-align: center;
+}
+
+.language-switch.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-switch:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Кнопка мобильного меню */
+.header__menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.header__menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    margin: 5px 0;
+    transition: all 0.3s;
+    transform-origin: center;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .header__menu {
+        gap: 24px;
+    }
+    
+    .header__menu a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header__top {
+        display: none;
+    }
+    
+    .header__main {
+        padding: 12px 0;
+    }
+    
+    .header__nav {
+        display: none;
+    }
+    
+    .header__menu-toggle {
+        display: block;
+    }
+    
+    .header__menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .header__menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .header__menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    .header__nav.active {
+        display: block;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 72px);
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(26, 59, 110, 0.1);
+    }
+    
+    .header__menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .header__menu li {
+        border-bottom: 1px solid rgba(26, 59, 110, 0.1);
+    }
+    
+    .header__menu a {
+        display: block;
+        padding: 16px 0;
+        font-size: 16px;
+    }
+    
+    .header__menu a::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header__main {
+        padding: 10px 0;
+    }
+    
+    .header__logo img {
+        height: 35px;
+    }
+    
+    .btn-primary1 {
+        display: none;
+    }
+    
+    .header__nav.active {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+/* Стили для кнопки версии для слабовидящих */
+.accessibility-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-secondary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+}
+
+.accessibility-btn:hover {
+    background: #E55A2A;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+    color: #fff;
+}
+
+.accessibility-btn svg {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+}
+
+/* Стили для версии для слабовидящих */
+body.accessibility-mode {
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+body.accessibility-mode * {
+    font-family: Arial, sans-serif !important;
+}
+
+body.accessibility-mode .header__menu a,
+body.accessibility-mode .btn,
+body.accessibility-mode p,
+body.accessibility-mode h1,
+body.accessibility-mode h2,
+body.accessibility-mode h3,
+body.accessibility-mode h4,
+body.accessibility-mode h5,
+body.accessibility-mode h6 {
+    font-weight: 700 !important;
+}
+
+body.accessibility-mode .header__menu a::after {
+    height: 3px;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .accessibility-btn span {
+        display: none;
+    }
+    
+    .accessibility-btn {
+        padding: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .accessibility-btn {
+        display: none;
+    }
+}
+</style>
+
+<script src="js/header.js"></script> 

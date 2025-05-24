@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate>Признание документов - ENIC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form-styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            margin-top: 120px; /* Отступ для шапки */
+        }
+
+        .page-banner {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2c5282 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.1;
+            animation: patternMove 20s linear infinite;
+        }
+
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            animation: gradientMove 15s ease-in-out infinite;
+        }
+
+        .page-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .page-banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Плавающие элементы */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -4s;
+        }
+
+        .floating-element:nth-child(4) {
+            top: 30%;
+            right: 25%;
+            animation-delay: -6s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(20px, 20px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        @keyframes patternMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recognition-content {
+            padding: 60px 0;
+        }
+
+        .recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .recognition-info {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(26,59,110,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(26,59,110,0.1);
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .info-card:nth-child(1) { animation-delay: 0.2s; }
+        .info-card:nth-child(2) { animation-delay: 0.4s; }
+        .info-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(26,59,110,0.15);
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .info-card:hover h3 {
+            color: var(--color-secondary);
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-card ul li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .info-card ul li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .info-card ul li:hover:before {
+            transform: scale(1.2);
+            box-shadow: 0 0 8px var(--color-secondary);
+        }
+
+        .recognition-form {
+            background: #fff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(26,59,110,0.08);
+            border: 1px solid rgba(26,59,110,0.1);
+            animation: fadeInUp 0.8s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .recognition-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            animation: gradientMove 3s linear infinite;
+        }
+
+        .recognition-form h2 {
+            color: var(--color-primary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .recognition-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--color-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-secondary);
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .form-group input[type="file"]::before {
+            content: 'Выберите файл';
+            position: absolute;
+            left: 16px;
+            color: var(--color-primary);
+            font-weight: 500;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="file"]::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231A3B6E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='17 8 12 3 7 8'/%3E%3Cline x1='12' y1='3' x2='12' y2='15'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input[type="file"]:hover {
+            border-color: var(--color-secondary);
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        .form-group input[type="file"]:hover::before {
+            color: var(--color-secondary);
+        }
+
+        .form-group input[type="file"]:hover::after {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .form-group input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+            width: 0;
+        }
+
+        .form-group input[type="file"]:has(::-webkit-file-upload-button:not(:disabled))::before {
+            content: 'Файл выбран';
+            color: var(--color-secondary);
+        }
+
+        /* Добавляем стили для сообщения об ошибке */
+        .file-error {
+            color: transparent;
+            font-size: 0.875rem;
+            margin-top: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .file-error-block {
+            color: #dc3545 !important;
+        }
+
+        .form-group.error .file-error {
+            color: #dc3545;
+        }
+
+        .form-group.error input[type="file"] {
+            border-color: #dc3545;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label:hover {
+            transform: translateX(5px);
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-primary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+
+        .checkbox-label span {
+            color: var(--color-primary);
+            transition: color 0.3s ease;
+        }
+
+        .checkbox-label:hover span {
+            color: var(--color-secondary);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 14px 28px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26,59,110,0.2);
+            background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(26,59,110,0.15);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recognition-form {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+        }
+
+        .recognition-form h2 {
+            margin-bottom: 24px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+        }
+
+        /* Стили для калькулятора */
+        .calculator-section {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .calculator {
+            background: #fff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(26,59,110,0.08);
+            border: 1px solid rgba(26,59,110,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .calculator:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(26,59,110,0.15);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f8fafc;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231A3B6E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .form-group select:focus {
+            border-color: var(--color-secondary);
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        }
+
+        .calculator-result {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(145deg, #f8f9fa, #fff);
+            border-radius: 12px;
+            border: 1px solid rgba(26,59,110,0.1);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(26,59,110,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            transform: translateX(5px);
+            border-bottom-color: var(--color-secondary);
+        }
+
+        .result-item.total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--color-primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+
+        .result-value {
+            color: var(--color-secondary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #calculateBtn {
+            width: 100%;
+            padding: 14px 28px;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #calculateBtn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        #calculateBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26,59,110,0.2);
+        }
+
+        #calculateBtn:hover::before {
+            left: 100%;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .recognition-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .recognition-form {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin-top: 100px; /* Уменьшаем отступ для мобильных устройств */
+            }
+
+            .page-banner {
+                padding: 40px 0;
+            }
+
+            .recognition-content {
+                padding: 40px 0;
+            }
+
+            .recognition-form {
+                padding: 24px;
+            }
+        }
+
+        .form-group .error-message {
+            color: transparent;
+            font-size: 0.875rem;
+            margin-top: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .form-group.error .error-message {
+            color: #dc3545;
+        }
+
+        .form-group.error input[type="tel"] {
+            border-color: #dc3545;
+        }
+
+        .custom-file-upload {
+            position: relative;
+            width: 100%;
+            /* margin-bottom: 25px; */
+        }
+        .custom-file-label {
+            display: flex;
+            align-items: center;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            background: #f8fafc;
+            padding: 12px;
+            cursor: pointer;
+            min-height: 60px;
+            transition: border-color 0.3s;
+            width: 100%;
+            position: relative;
+        }
+        .custom-file-text {
+            flex: 1;
+            color: var(--color-primary);
+            font-weight: 500;
+            text-align: left;
+        }
+        .custom-file-icon {
+            color: #b0b8c9;
+            font-size: 24px;
+            margin-left: 12px;
+        }
+        .custom-file-label:hover {
+            border-color: var(--color-secondary);
+        }
+        .form-group.error .custom-file-label {
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Подключаем шапку -->
+    <div id="header"></div>
+
+    <main>
+
+
+        <!-- Баннер -->
+        <section class="page-banner">
+            <div class="floating-element">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19Z" fill="currentColor"/>
+                    <path d="M7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H14V17H7V15Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-element">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-element">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-element">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="container">
+                <h1 data-translate>Признание зарубежных документов об образовании</h1>
+                <p data-translate>Онлайн-форма подачи заявки на признание документов об образовании, полученных в зарубежных учебных заведениях</p>
+            </div>
+        </section>
+        
+        <!-- Хлебные крошки -->
+        <div id="breadcrumbs"></div>
+
+        <!-- Основной контент -->
+        <section class="recognition-content">
+            <div class="container">
+                <div class="recognition-grid">
+                    <!-- Информация -->
+                    <div class="recognition-info">
+                        <h2 data-translate>Информация о признании</h2>
+                        <div class="info-card">
+                            <h3 data-translate>Виды признания</h3>
+                            <ul>
+                                <li data-translate>Академическое признание</li>
+                                <li data-translate>Профессиональное признание</li>
+                                <li data-translate>Признание для целей трудоустройства</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h3 data-translate>Необходимые документы</h3>
+                            <ul>
+                                <li data-translate>Документ об образовании (оригинал и копия)</li>
+                                <li data-translate>Приложение к документу об образовании</li>
+                                <li data-translate>Копия паспорта</li>
+                                <li data-translate>Фотография 3x4</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h3 data-translate>Сроки рассмотрения</h3>
+                            <p data-translate>Срок рассмотрения заявки составляет от 15 до 30 рабочих дней в зависимости от типа признания и комплектности предоставленных документов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Калькулятор -->
+                    <div class="calculator-section">
+                        <h2 data-translate>Калькулятор стоимости и сроков</h2>
+                        <div class="calculator">
+                            <div class="form-group">
+                                <label for="calcDocumentType" data-translate>Тип документа</label>
+                                <select id="calcDocumentType" name="calcDocumentType" required>
+                                    <option value="" data-translate>Выберите тип документа</option>
+                                    <option value="bachelor" data-translate>Бакалавриат</option>
+                                    <option value="master" data-translate>Магистратура</option>
+                                    <option value="phd" data-translate>Докторантура</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="calcCountry" data-translate>Страна выдачи</label>
+                                <select id="calcCountry" name="calcCountry" required>
+                                    <option value="" data-translate>Выберите страну</option>
+                                    <option value="russia" data-translate>Россия</option>
+                                    <option value="ukraine" data-translate>Украина</option>
+                                    <option value="belarus" data-translate>Беларусь</option>
+                                    <option value="other" data-translate>Другая страна</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="calcUrgency" data-translate>Срочность</label>
+                                <select id="calcUrgency" name="calcUrgency" required>
+                                    <option value="normal" data-translate>Обычный срок</option>
+                                    <option value="urgent" data-translate>Срочно (7 дней)</option>
+                                    <option value="express" data-translate>Экспресс (3 дня)</option>
+                                </select>
+                            </div>
+                            <div class="calculator-result">
+                                <div class="result-item">
+                                    <span data-translate>Срок рассмотрения:</span>
+                                    <span id="processingTime" class="result-value">-</span>
+                                </div>
+                                <div class="result-item">
+                                    <span data-translate>Стоимость услуги:</span>
+                                    <span id="serviceCost" class="result-value">-</span>
+                                </div>
+                                <div class="result-item total">
+                                    <span data-translate>Итого:</span>
+                                    <span id="totalCost" class="result-value">-</span>
+                                </div>
+                            </div>
+                            <button type="button" id="calculateBtn" class="btn btn-primary" data-translate>Рассчитать</button>
+                        </div>
+                    </div>
+
+                    <!-- Форма заявки -->
+                    <div class="recognition-form">
+                        <h2 data-translate>Подать заявку</h2>
+                        <form id="recognitionForm" class="form">
+                            <div class="form-group">
+                                <label for="fullName" data-translate>Полное имя</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-translate>Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-translate>Телефон</label>
+                                <input type="tel" id="phone" name="phone" required maxlength="12" pattern="\+[0-9]{11}" placeholder="+7XXXXXXXXXX">
+                                <div class="error-message" data-translate>Введите номер в формате +7XXXXXXXXXX</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="documentType" data-translate>Тип документа</label>
+                                <select id="documentType" name="documentType" required>
+                                    <option value="" data-translate>Выберите тип документа</option>
+                                    <option value="academic" data-translate>Академическое признание</option>
+                                    <option value="professional" data-translate>Профессиональное признание</option>
+                                    <option value="employment" data-translate>Признание для целей трудоустройства</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="country" data-translate>Страна выдачи документа</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="institution" data-translate>Учебное заведение</label>
+                                <input type="text" id="institution" name="institution" required>
+                            </div>
+                            <div class="form-group file-group-document">
+                                <label for="document" data-translate>Документ об образовании (PDF)</label>
+                                <div class="custom-file-upload">
+                                    <label class="custom-file-label">
+                                        <span class="custom-file-text" id="documentText">Выберите файл</span>
+                                        <input type="file" id="document" name="document" accept=".pdf" required style="display: none;">
+                                        <span class="custom-file-icon">&#8682;</span>
+                                    </label>
+                                </div>
+                                <div class="file-error file-error-document" data-translate>Не выбран ни один файл</div>
+                            </div>
+                            <div class="form-group file-group-supplement">
+                                <label for="supplement" data-translate>Приложение к документу (PDF)</label>
+                                <div class="custom-file-upload">
+                                    <label class="custom-file-label">
+                                        <span class="custom-file-text" id="supplementText">Выберите файл</span>
+                                        <input type="file" id="supplement" name="supplement" accept=".pdf" required style="display: none;">
+                                        <span class="custom-file-icon">&#8682;</span>
+                                    </label>
+                                </div>
+                                <div class="file-error file-error-supplement" data-translate>Не выбран ни один файл</div>
+                            </div>
+                            <div class="form-group file-group-passport">
+                                <label for="passport" data-translate>Копия паспорта (PDF)</label>
+                                <div class="custom-file-upload">
+                                    <label class="custom-file-label">
+                                        <span class="custom-file-text" id="passportText">Выберите файл</span>
+                                        <input type="file" id="passport" name="passport" accept=".pdf" required style="display: none;">
+                                        <span class="custom-file-icon">&#8682;</span>
+                                    </label>
+                                </div>
+                                <div class="file-error file-error-passport" data-translate>Не выбран ни один файл</div>
+                            </div>
+                            <div class="form-group file-group-photo">
+                                <label for="photo" data-translate>Фотография (JPG)</label>
+                                <div class="custom-file-upload">
+                                    <label class="custom-file-label">
+                                        <span class="custom-file-text" id="photoText">Выберите файл</span>
+                                        <input type="file" id="photo" name="photo" accept=".jpg,.jpeg" required style="display: none;">
+                                        <span class="custom-file-icon">&#8682;</span>
+                                    </label>
+                                </div>
+                                <div class="file-error file-error-photo" data-translate>Не выбран ни один файл</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comments" data-translate>Дополнительная информация</label>
+                                <textarea id="comments" name="comments" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="agreement" required>
+                                    <span data-translate>Я согласен с условиями обработки персональных данных</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-translate>Отправить заявку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подключаем подвал -->
+    <footer class="footer" id="footer"></footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/header-footer-upload.js"></script>
+    <script src="js/recognition.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('recognitionForm');
+        const phoneInput = document.getElementById('phone');
+
+        // Кастомизация отображения выбранного файла
+        document.querySelectorAll('.custom-file-upload input[type="file"]').forEach(input => {
+            const textElement = input.parentElement.querySelector('.custom-file-text');
+            const errorElement = input.closest('.form-group').querySelector('.file-error');
+            const formGroup = input.closest('.form-group');
+
+            input.addEventListener('change', function() {
+                textElement.textContent = this.files.length ? this.files[0].name : 'Выберите файл';
+                // Убираем ошибку если файл выбран
+                if (this.files.length) {
+                    errorElement.classList.remove('file-error-block');
+                    formGroup.classList.remove('error');
+                }
+            });
+        });
+
+        // Обработка ввода телефона
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value;
+            
+            // Удаляем все символы кроме цифр и +
+            value = value.replace(/[^\d+]/g, '');
+            
+            // Если первый символ не +, добавляем его
+            if (value.length > 0 && value[0] !== '+') {
+                value = '+' + value;
+            }
+            
+            // Ограничиваем длину до 12 символов (+ и 11 цифр)
+            value = value.slice(0, 12);
+            
+            e.target.value = value;
+
+            // Убираем ошибку при правильном формате
+            if (value.match(/^\+[0-9]{11}$/)) {
+                this.closest('.form-group').classList.remove('error');
+            }
+        });
+
+        // Проверка телефона при потере фокуса
+        phoneInput.addEventListener('blur', function() {
+            const value = this.value;
+            const formGroup = this.closest('.form-group');
+            
+            if (value && !value.match(/^\+[0-9]{11}$/)) {
+                formGroup.classList.add('error');
+            } else {
+                formGroup.classList.remove('error');
+            }
+        });
+
+        // Валидация при отправке формы
+        const submitButton = form.querySelector('button[type="submit"]');
+        // console.log('Кнопка отправки найдена:', submitButton);
+
+        submitButton.addEventListener('click', function(e) {
+            // console.log('Кнопка нажата');
+            e.preventDefault();
+            let hasErrors = false;
+
+            // Проверка телефона
+            const phoneValue = phoneInput.value;
+            if (!phoneValue.match(/^\+[0-9]{11}$/)) {
+                phoneInput.closest('.form-group').classList.add('error');
+                hasErrors = true;
+            }
+
+            // alert('test');
+
+            // Проверка файлов
+            document.querySelectorAll('.custom-file-upload input[type="file"]').forEach(input => {
+                const formGroup = input.closest('.form-group');
+                const errorElement = formGroup.querySelector('.file-error');
+
+                if (!input.files || input.files.length === 0) {
+                    formGroup.classList.add('error');
+                    errorElement.classList.add('file-error-block');
+                    hasErrors = true;
+                } else {
+                    formGroup.classList.remove('error');
+                    errorElement.classList.remove('file-error-block');
+                }
+            });
+
+            if (!hasErrors) {
+                // Здесь можно добавить отправку формы
+                console.log('Форма отправлена');
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

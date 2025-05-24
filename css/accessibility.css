@@ -1,0 +1,202 @@
+/* Версия для слабовидящих */
+.visually-impaired-mode {
+    --font-size-base: 20px;
+    --line-height-base: 1.6;
+    --color-background: #000000;
+    --color-text: #FFFFFF;
+    --color-primary: #FFD700;
+    --color-secondary: #00FFFF;
+    --color-error: #FF6B6B;
+    --color-success: #4CAF50;
+}
+
+.visually-impaired-mode body {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    letter-spacing: 0.5px;
+}
+
+.visually-impaired-mode .header {
+    background-color: var(--color-background);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.visually-impaired-mode .main-nav {
+    background-color: var(--color-background);
+    border-top: 3px solid var(--color-primary);
+}
+
+.visually-impaired-mode .main-nav a {
+    color: var(--color-text);
+    font-size: calc(var(--font-size-base) * 1.1);
+    padding: 15px 0;
+    text-decoration: underline;
+}
+
+.visually-impaired-mode .main-nav a:hover {
+    color: var(--color-primary);
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.visually-impaired-mode .btn {
+    font-size: var(--font-size-base);
+    padding: 15px 30px;
+    border: 3px solid var(--color-primary);
+    text-decoration: none;
+}
+
+.visually-impaired-mode .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.visually-impaired-mode .btn-outline {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+.visually-impaired-mode .visually-impaired {
+    display: none !important;
+}
+
+/* Улучшенная доступность для форм */
+.visually-impaired-mode .form-group label {
+    font-size: var(--font-size-base);
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+.visually-impaired-mode .form-group input,
+.visually-impaired-mode .form-group textarea {
+    font-size: var(--font-size-base);
+    padding: 15px;
+    border: 3px solid var(--color-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.visually-impaired-mode .form-group input:focus,
+.visually-impaired-mode .form-group textarea:focus {
+    border-color: var(--color-secondary);
+    outline: 3px solid var(--color-secondary);
+}
+
+.visually-impaired-mode .error-message {
+    color: var(--color-error);
+    font-size: calc(var(--font-size-base) * 0.9);
+    margin-top: 5px;
+}
+
+/* Улучшенная доступность для ссылок */
+.visually-impaired-mode a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.visually-impaired-mode a:hover {
+    color: var(--color-secondary);
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+/* Улучшенная доступность для заголовков */
+.visually-impaired-mode h1 {
+    font-size: calc(var(--font-size-base) * 2);
+    color: var(--color-primary);
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.visually-impaired-mode h2 {
+    font-size: calc(var(--font-size-base) * 1.5);
+    color: var(--color-primary);
+    margin-bottom: 1.2em;
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 0.5em;
+}
+
+.visually-impaired-mode h3 {
+    font-size: calc(var(--font-size-base) * 1.2);
+    color: var(--color-primary);
+    margin-bottom: 1em;
+}
+
+/* Улучшенная доступность для карточек */
+.visually-impaired-mode .card {
+    border: 3px solid var(--color-primary);
+    background-color: var(--color-background);
+    padding: 20px;
+}
+
+/* Улучшенная доступность для таблиц */
+.visually-impaired-mode table {
+    border: 3px solid var(--color-primary);
+    width: 100%;
+}
+
+.visually-impaired-mode th,
+.visually-impaired-mode td {
+    border: 2px solid var(--color-primary);
+    padding: 15px;
+    text-align: left;
+}
+
+.visually-impaired-mode th {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+/* Улучшенная доступность для списков */
+.visually-impaired-mode ul,
+.visually-impaired-mode ol {
+    margin-left: 2em;
+    margin-bottom: 1.5em;
+}
+
+.visually-impaired-mode li {
+    margin-bottom: 0.5em;
+}
+
+/* Улучшенная доступность для кнопок навигации */
+.visually-impaired-mode .pagination button {
+    font-size: var(--font-size-base);
+    padding: 10px 20px;
+    border: 3px solid var(--color-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.visually-impaired-mode .pagination button.active {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+/* Улучшенная доступность для иконок */
+.visually-impaired-mode .icon {
+    width: 32px;
+    height: 32px;
+}
+
+.visually-impaired-mode .icon--large {
+    width: 48px;
+    height: 48px;
+}
+
+/* Улучшенная доступность для уведомлений */
+.visually-impaired-mode .notification {
+    border: 3px solid var(--color-primary);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: var(--color-background);
+}
+
+.visually-impaired-mode .notification--success {
+    border-color: var(--color-success);
+}
+
+.visually-impaired-mode .notification--error {
+    border-color: var(--color-error);
+} 

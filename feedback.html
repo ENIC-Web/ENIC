@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь - НЦРВО</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="container">
+        <div class="breadcrumbs">
+            <a href="index.html" data-translate>Главная</a>
+            <span>/</span>
+            <span data-translate>Обратная связь</span>
+        </div>
+
+        <section class="feedback-section">
+            <h1 data-translate>Обратная связь</h1>
+            <p class="section-description" data-translate>Мы ценим ваше мнение и готовы ответить на все ваши вопросы</p>
+
+            <form id="feedbackForm" class="feedback-form">
+                <div class="form-group">
+                    <label for="name" data-translate>Ваше имя</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-translate>Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" data-translate>Тема</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" data-translate>Выберите тему</option>
+                        <option value="general" data-translate>Общий вопрос</option>
+                        <option value="technical" data-translate>Техническая поддержка</option>
+                        <option value="complaint" data-translate>Жалоба</option>
+                        <option value="suggestion" data-translate>Предложение</option>
+                    </select>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" data-translate>Сообщение</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agreement" required>
+                        <span data-translate>Я согласен на обработку персональных данных</span>
+                    </label>
+                    <div class="error-message"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" data-translate>Отправить сообщение</button>
+            </form>
+        </section>
+
+        <section class="contact-info">
+            <h2 data-translate>Контактная информация</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3 data-translate>Адрес</h3>
+                    <p data-translate>г. Астана, ул. Примерная, 123</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-translate>Телефон</h3>
+                    <p>+7 (777) 123-45-67</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-translate>Email</h3>
+                    <p>info@ncro.kz</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-translate>Время работы</h3>
+                    <p data-translate>Пн-Пт: 9:00 - 18:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/header-footer-upload.js"></script>
+</body>
+</html> 

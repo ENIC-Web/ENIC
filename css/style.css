@@ -1,0 +1,1196 @@
+/* Основные стили */
+:root {
+    --color-primary: #1A3B6E;
+    --color-secondary: #FF6B35;
+    --color-accent: #4A90E2;
+    --color-background: #FFFFFF;
+    --color-background-light: #F5F5F5;
+    --color-text: #333333;
+    --color-gray: #F5F5F5;
+    --container-width: 1200px;
+    --container-padding: 20px;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --header-height: 120px;
+}
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основные стили */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--color-background);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #E55A2A;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #b0b8c9;
+    border-radius: 4px;
+    background: #f8fafc;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-secondary);
+    background: #fff;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(255,107,53,0.08);
+}
+
+/* Карточки */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Сетки */
+.grid {
+    display: grid;
+    gap: 30px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Версия для слабовидящих */
+.visually-impaired {
+    display: none !important;
+}
+
+/* Утилиты */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 2.5rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 2.5rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+.p-5 { padding: 2.5rem; }
+
+/* Шапка сайта */
+.header {
+    background-color: var(--color-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+}
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.language-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.language-switcher button {
+    background: none;
+    border: 1px solid var(--color-primary);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.language-switcher button.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Главная навигация */
+.main-nav {
+    background-color: var(--color-primary);
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--color-secondary);
+}
+
+/* Основной контент */
+main {
+    margin-top: var(--header-height);
+}
+
+/* Баннер */
+.hero {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 120px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(26,59,110,0.9), rgba(74,144,226,0.9));
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Секция услуг */
+.services {
+    padding: 80px 0;
+    background: var(--color-background-light);
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* Секция новостей */
+.news {
+    padding: 80px 0;
+}
+
+.news h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+}
+
+.news__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Подвал */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer__info img {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+}
+
+.footer__links ul {
+    list-style: none;
+}
+
+.footer__links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer__links a:hover {
+    opacity: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 1;
+}
+
+.accessibility-btn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accessibility-btn:hover {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+/* Стили для страницы признания документов */
+.page-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 120px 0 40px;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.breadcrumbs {
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumbs__list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+    content: '/';
+    margin-left: 10px;
+    color: #666;
+}
+
+.breadcrumbs__link {
+    color: #666;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs__link:hover {
+    color: var(--color-secondary);
+}
+
+.breadcrumbs__current {
+    color: #666;
+    text-decoration: none;
+}
+
+.recognition-info__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.info-cards {
+    display: grid;
+    gap: 20px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.calculator {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.file-upload {
+    border: 2px dashed #ddd;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.file-upload__info {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+.legal-documents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.legal-document h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.legal-document ul {
+    list-style: none;
+}
+
+.legal-document a {
+    color: var(--color-text);
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.legal-document a:hover {
+    color: var(--color-primary);
+}
+
+/* Адаптивность для страницы признания */
+@media (max-width: 768px) {
+    .recognition-info__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        padding: 100px 0 30px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .breadcrumbs {
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+    
+    .breadcrumbs__list {
+        flex-wrap: wrap;
+    }
+}
+
+/* Стили для страницы Болонского процесса */
+.bologna-info__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.bologna-principles {
+    margin-top: 2rem;
+    background: var(--background-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.principles-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.principles-list li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.principles-list li:last-child {
+    margin-bottom: 0;
+}
+
+.bologna-benefits {
+    padding: 4rem 0;
+    background: var(--background-light);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.benefit-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.bologna-documents {
+    padding: 4rem 0;
+}
+
+.documents-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.document-item {
+    background: var(--background-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.document-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.document-item p {
+    margin-bottom: 1.5rem;
+}
+
+/* Адаптивность для страницы Болонского процесса */
+@media (max-width: 1024px) {
+    .benefits-grid,
+    .documents-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid,
+    .documents-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .bologna-info__content {
+        padding: 1rem;
+    }
+}
+
+/* Стили для страницы новостей */
+.news-filter {
+    padding: 2rem 0;
+    background: var(--background-light);
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.search-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.category-filter select {
+    padding: 0.75rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.news-grid {
+    padding: 4rem 0;
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+    transition: transform 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card__content {
+    padding: 20px;
+}
+
+.news-card__content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.news-card__content p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.news-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.news-card__link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-card__link:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination__prev,
+.pagination__next {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination__prev:disabled,
+.pagination__next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination__numbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination__numbers button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination__numbers button.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Адаптивность для страницы новостей */
+@media (max-width: 1024px) {
+    .news-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-box {
+        max-width: none;
+    }
+    
+    .news-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
+
+/* Стили для страницы контактов */
+.contact-flex {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-details {
+    flex: 1 1 300px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+    padding: 32px 24px;
+    min-width: 260px;
+    max-width: 350px;
+}
+
+.contact-details h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+}
+
+.contact-details p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.contact-form {
+    flex: 1 1 350px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+    padding: 32px 24px;
+    min-width: 300px;
+    max-width: 420px;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: var(--color-primary);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1.5px solid #b0b8c9;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #f8fafc;
+    box-shadow: 0 1px 3px rgba(26,59,110,0.04);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-secondary);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(255,107,53,0.08);
+}
+
+.map-section {
+    padding: 4rem 0;
+    background: var(--background-light);
+}
+
+.map-container {
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность для страницы контактов */
+@media (max-width: 1024px) {
+    .contact-flex {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-flex {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+    .contact-details, .contact-form {
+        max-width: 100%;
+    }
+}
+
+/* Header styles */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.header-container nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.header-container nav ul li a {
+    color: #18335c;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+}
+.language-switcher {
+    display: flex;
+    gap: 8px;
+}
+.language-switcher button {
+    border: 1px solid #18335c;
+    background: #fff;
+    color: #18335c;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.language-switcher button.active {
+    background: #18335c;
+    color: #fff;
+}
+.mobile-menu-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.logo {
+    height: 40px;
+}
+
+/* Footer styles */
+footer {
+    background: #18335c;
+    color: #fff;
+    padding: 24px 0;
+    margin-top: 40px;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.footer-contacts {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* SVG иконки */
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon--large {
+    width: 32px;
+    height: 32px;
+}
+
+.icon--small {
+    width: 16px;
+    height: 16px;
+}
+
+.icon--primary {
+    fill: var(--color-primary);
+}
+
+.icon--secondary {
+    fill: var(--color-secondary);
+}
+
+.icon--white {
+    fill: #FFFFFF;
+}
+
+/* Временные SVG иконки */
+.temp-icon {
+    background-color: var(--color-gray);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+} 

@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate>ENIC - Ұлттық орталық</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form-styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/chat.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --color-primary: #1A3B6E;
+    --color-secondary: #FF6B35;
+    --color-accent: #4A90E2;
+    --color-background: #FFFFFF;
+    --color-background-light: #F5F5F5;
+    --color-text: #333333;
+    --color-gray: #F5F5F5;
+    --container-width: 1200px;
+    --container-padding: 20px;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --transition-base: all 0.3s ease;
+    --shadow-base: 0 2px 8px rgba(26,59,110,0.07);
+    --shadow-hover: 0 4px 12px rgba(26,59,110,0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background: var(--color-background);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Баннер */
+.hero {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 120px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(26,59,110,0.9), rgba(74,144,226,0.9));
+    z-index: 1;
+}
+
+/* Добавляем плавающие элементы */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 40% 60%, rgba(255,255,255,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 60% 20%, rgba(255,255,255,0.1) 0%, transparent 20%);
+    animation: floatBackground 15s ease-in-out infinite;
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.9);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.hero__buttons .btn {
+    min-width: 180px;
+    height: 48px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    margin: 0;
+}
+
+.hero__buttons .btn-primary {
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+}
+
+.hero__buttons .btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+@keyframes floatBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Добавляем плавающие иконки */
+.floating-icon {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.1;
+    animation: floatIcon 10s ease-in-out infinite;
+}
+
+.floating-icon:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.floating-icon:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -4s;
+}
+
+.floating-icon:nth-child(4) {
+    top: 30%;
+    right: 25%;
+    animation-delay: -6s;
+}
+
+@keyframes floatIcon {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(20px, 20px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Улучшенные стили для кнопок */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-base);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: #fff;
+    box-shadow: var(--shadow-base);
+}
+
+.btn-primary:hover {
+    background-color: #E55A2A;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Сервисы */
+.services {
+    padding: 80px 0;
+    background: var(--color-background-light);
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Улучшенные стили для карточек сервисов */
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-base);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(26, 59, 110, 0.1);
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.service-card:hover::before {
+    opacity: 0.05;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(26, 59, 110, 0.15);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--color-secondary);
+}
+
+.service-card h3 {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.service-card:hover h3 {
+    color: var(--color-secondary);
+}
+
+.service-card p {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.service-card .btn {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.service-card:hover .btn {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.2s; }
+.service-card:nth-child(2) { animation-delay: 0.4s; }
+.service-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Новости */
+.news {
+    padding: 80px 0;
+}
+
+.news__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Улучшенные стили для карточек новостей */
+.news-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-base);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.news-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-card__image {
+    transform: scale(1.05);
+}
+
+.news-card__content {
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-card__date {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.news-card__tags {
+    display: flex;
+    gap: 8px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.news-card__tag {
+    background: var(--color-background-light);
+    color: var(--color-primary);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.news-card__tag:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.news-card__content h3 {
+    color: var(--color-primary);
+    margin: 15px 0 15px;
+    font-size: 1.3rem;
+    transition: var(--transition-base);
+}
+
+.news-card__read-more {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    background: var(--color-primary);
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.news-card__read-more:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.news-card__read-more svg {
+    transition: transform 0.3s ease;
+}
+
+.news-card__read-more:hover svg {
+    transform: translateX(5px);
+}
+
+.news-card__content p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.news-card {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.news-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.news-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* FAQ */
+.faq {
+    padding: 80px 0;
+    background: var(--color-background-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.faq::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-base);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center;
+    animation: slideInRight 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.faq-item:hover::before {
+    transform: scaleY(1);
+}
+
+.faq-item h4 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.faq-item h4::before {
+    content: 'Q:';
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-left: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.faq-item p::before {
+    content: 'A:';
+    position: absolute;
+    left: -25px;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.faq-item:hover h4 {
+    color: var(--color-secondary);
+}
+
+.faq-more {
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.faq-more a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.faq-more a:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.faq-more a svg {
+    transition: transform 0.3s ease;
+}
+
+.faq-more a:hover svg {
+    transform: translateX(5px);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Контакты */
+.contacts {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--color-background-light) 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+
+}
+
+.contact-flex {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.contact-details {
+    flex: 1 1 300px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow-base);
+    padding: 32px;
+    min-width: 260px;
+    max-width: 350px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.contact-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-details:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-details:hover::before {
+    transform: scaleX(1);
+}
+
+.contact-details h3 {
+    color: var(--color-primary);
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.contact-details h3:first-child {
+    margin-top: 0;
+}
+
+.contact-details h3 svg {
+    color: var(--color-secondary);
+    transition: transform 0.3s ease;
+}
+
+.contact-details:hover h3 svg {
+    transform: scale(1.1);
+}
+
+.contact-details p {
+    color: var(--color-text);
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.contact-details p:hover {
+    color: var(--color-primary);
+    transform: translateX(5px);
+}
+
+.contact-form {
+    flex: 1 1 350px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow-base);
+    padding: 32px;
+    min-width: 300px;
+    max-width: 420px;
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-form:hover::before {
+    transform: scaleX(1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-secondary);
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.contact-details h3 svg {
+    animation: pulse 2s infinite;
+}
+
+/* Версия для слабовидящих */
+.visually-impaired {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.visually-impaired button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.visually-impaired button:hover {
+    background: var(--color-secondary);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contacts {
+        padding: 40px 0;
+    }
+    
+    .contact-flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+    
+    .contact-details,
+    .contact-form {
+        max-width: 100%;
+        min-width: auto;
+        padding: 24px;
+    }
+    
+    .form-group {
+        margin-bottom: 16px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 14px;
+        font-size: 16px; /* Предотвращает масштабирование на iOS */
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+#egov-integration {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.egov-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.egov-title {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.egov-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-secondary);
+    border-radius: 2px;
+}
+
+.egov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.egov-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-base);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.egov-card:nth-child(1) { animation-delay: 0.2s; }
+.egov-card:nth-child(2) { animation-delay: 0.3s; }
+.egov-card:nth-child(3) { animation-delay: 0.4s; }
+
+.egov-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.egov-card h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.egov-card p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.egov-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.egov-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.egov-card:hover .egov-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--color-secondary);
+}
+
+.egov-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 107, 53, 0.1);
+}
+
+.egov-link:hover {
+    background: var(--color-secondary);
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.egov-link svg {
+    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.egov-link:hover svg {
+    transform: translateX(5px);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.egov-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Стили для онлайн-консультанта */
+#chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+    background: var(--color-secondary);
+}
+
+.chat-button svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+.chat-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.chat-input {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.chat-input button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: var(--color-secondary);
+}
+    </style>
+</head>
+<body>
+    <!-- Подключаем шапку -->
+    <div id="header"></div>
+
+    <main>
+        <!-- Баннер -->
+        <section class="hero">
+            <!-- Плавающие иконки -->
+            <div class="floating-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="floating-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="container">
+                <h1 class="animate-fade-in" data-translate>ЖОҒАРЫ БІЛІМ БЕРУДІ ДАМЫТУ ҰЛТТЫҚ ОРТАЛЫҒЫ</h1>
+                <p class="animate-fade-in" data-translate>Білім беру сапасын арттыру және халықаралық интеграцияға жәрдемдесу</p>
+                <div class="hero__buttons">
+                    <a href="recognition.html" class="btn btn-primary hover-lift" data-translate>Подать заявку</a>
+                    <a href="#status" class="btn btn-outline hover-lift" data-translate>Проверить статус</a>
+                    <a href="#search" class="btn btn-outline hover-lift" data-translate>Поиск вуза</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Сервисы -->
+        <section class="services">
+            <div class="container">
+                <h2 class="animate-fade-in" data-translate>Наши сервисы</h2>
+                <div class="services__grid">
+                    <div class="service-card card-hover animate-fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19Z" fill="currentColor"/>
+                                <path d="M7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H14V17H7V15Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Признание документов</h3>
+                        <p data-translate>Онлайн-форма подачи заявки на признание зарубежных документов об образовании</p>
+                        <a href="recognition.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                    </div>
+                    <div class="service-card card-hover animate-fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Аккредитация</h3>
+                        <p data-translate>Информация о процедурах аккредитации и доступ к реестрам</p>
+                        <a href="accreditation.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                    </div>
+                    <div class="service-card card-hover animate-fade-in">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Болонский процесс</h3>
+                        <p data-translate>Информация о Болонском процессе и системе квалификаций</p>
+                        <a href="bologna.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новости -->
+        <section class="news">
+            <div class="container">
+                <h2 class="animate-fade-in" data-translate>Новости и объявления</h2>
+                <div class="news__grid">
+                    <div class="news-card">
+                        <div class="news-card__image">
+                            <svg width="400" height="250" viewBox="10 0 400 250" fill="none">
+                                <rect width="400" height="250" fill="#F5F5F5"/>
+                                <path d="M200 100C211.046 100 220 91.0457 220 80C220 68.9543 211.046 60 200 60C188.954 60 180 68.9543 180 80C180 91.0457 188.954 100 200 100Z" fill="#1A3B6E"/>
+                                <path d="M160 140C160 128.954 168.954 120 180 120H220C231.046 120 240 128.954 240 140V160C240 171.046 231.046 180 220 180H180C168.954 180 160 171.046 160 160V140Z" fill="#1A3B6E"/>
+                            </svg>
+                        </div>
+                        <div class="news-card__content">
+                            <div class="news-card__date">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14C4.7 14 2 11.3 2 8C2 4.7 4.7 2 8 2C11.3 2 14 4.7 14 8C14 11.3 11.3 14 8 14Z" fill="currentColor"/>
+                                    <path d="M8.5 4H7V9L11.2 11.2L11.8 10.2L8.5 8.5V4Z" fill="currentColor"/>
+                                </svg>
+                                15 марта 2024
+                            </div>
+                            <h3>Семинар по повышению квалификации</h3>
+                            <p>Приглашаем всех желающих принять участие в семинаре по повышению квалификации преподавателей высших учебных заведений. Семинар пройдет в формате онлайн и офлайн.</p>
+                            <div class="news-card__tags">
+                                <span class="news-card__tag">Образование</span>
+                                <span class="news-card__tag">Семинар</span>
+                            </div>
+                            <a href="seminar.html" class="news-card__read-more">
+                                Подробнее о семинаре
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-card__image">
+                            <svg width="400" height="250" viewBox="10 0 400 250" fill="none">
+                                <rect width="400" height="250" fill="#F5F5F5"/>
+                                <path d="M200 100C211.046 100 220 91.0457 220 80C220 68.9543 211.046 60 200 60C188.954 60 180 68.9543 180 80C180 91.0457 188.954 100 200 100Z" fill="#1A3B6E"/>
+                                <path d="M160 140C160 128.954 168.954 120 180 120H220C231.046 120 240 128.954 240 140V160C240 171.046 231.046 180 220 180H180C168.954 180 160 171.046 160 160V140Z" fill="#1A3B6E"/>
+                            </svg>
+                        </div>
+                        <div class="news-card__content">
+                            <div class="news-card__date">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14C4.7 14 2 11.3 2 8C2 4.7 4.7 2 8 2C11.3 2 14 4.7 14 8C14 11.3 11.3 14 8 14Z" fill="currentColor"/>
+                                    <path d="M8.5 4H7V9L11.2 11.2L11.8 10.2L8.5 8.5V4Z" fill="currentColor"/>
+                                </svg>
+                                10 марта 2024
+                            </div>
+                            <h3>Новые требования к аккредитации</h3>
+                            <p>Уважаемые коллеги! Информируем вас о новых требованиях к процедуре аккредитации образовательных программ. В 2024 году вводятся обновленные стандарты и критерии оценки качества образования.</p>
+                            <div class="news-card__tags">
+                                <span class="news-card__tag">Аккредитация</span>
+                                <span class="news-card__tag">Образование</span>
+                                <span class="news-card__tag">Новости</span>
+                            </div>
+                            <a href="accreditation.html" class="news-card__read-more">
+                                Узнать о новых требованиях
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-card__image">
+                            <svg width="400" height="250" viewBox="10 0 400 250" fill="none">
+                                <rect width="400" height="250" fill="#F5F5F5"/>
+                                <path d="M200 100C211.046 100 220 91.0457 220 80C220 68.9543 211.046 60 200 60C188.954 60 180 68.9543 180 80C180 91.0457 188.954 100 200 100Z" fill="#1A3B6E"/>
+                                <path d="M160 140C160 128.954 168.954 120 180 120H220C231.046 120 240 128.954 240 140V160C240 171.046 231.046 180 220 180H180C168.954 180 160 171.046 160 160V140Z" fill="#1A3B6E"/>
+                            </svg>
+                        </div>
+                        <div class="news-card__content">
+                            <div class="news-card__date">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14C4.7 14 2 11.3 2 8C2 4.7 4.7 2 8 2C11.3 2 14 4.7 14 8C14 11.3 11.3 14 8 14Z" fill="currentColor"/>
+                                    <path d="M8.5 4H7V9L11.2 11.2L11.8 10.2L8.5 8.5V4Z" fill="currentColor"/>
+                                </svg>
+                                5 марта 2024
+                            </div>
+                            <h3>Обновленный раздел FAQ</h3>
+                            <p>Мы обновили раздел часто задаваемых вопросов. Теперь вы можете найти ответы на самые актуальные вопросы о процедурах аккредитации, признании документов и других услугах центра.</p>
+                            <div class="news-card__tags">
+                                <span class="news-card__tag">FAQ</span>
+                                <span class="news-card__tag">Обновления</span>
+                            </div>
+                            <a href="faq.html" class="news-card__read-more">
+                                Перейти к FAQ
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <h2 data-translate>Часто задаваемые вопросы</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h4 data-translate>Как подать заявку на признание?</h4>
+                        <p data-translate>Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы. Процесс занимает не более 15 минут.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-translate>Какие документы нужны для аккредитации?</h4>
+                        <p data-translate>Список документов зависит от типа аккредитации. Ознакомьтесь с подробными требованиями в соответствующем разделе на нашем сайте.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 data-translate>Где найти информацию о Болонском процессе?</h4>
+                        <p data-translate>Вся актуальная информация о Болонском процессе размещена в специальном разделе на сайте. Там вы найдете последние новости и изменения.</p>
+                    </div>
+                </div>
+                <div class="faq-more">
+                    <a href="faq.html" class="btn-more">
+                        Больше вопросов и ответов
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section class="contacts">
+            <div class="container">
+                <h2 data-translate>Контакты</h2>
+                <div class="contact-flex">
+                    <div class="contact-details">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                            <span data-translate>Адрес</span>
+                        </h3>
+                        <p>г. Астана, ул. Сыганак, 70, офис 202</p>
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                            </svg>
+                            <span data-translate>Телефон</span>
+                        </h3>
+                        <p>+7 (7172) 57-20-75</p>
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                            </svg>
+                            <span>Email</span>
+                        </h3>
+                        <p>cbpiam@n-k.kz</p>
+                    </div>
+                    <div class="contact-form">
+                        <h2 data-translate>Напишите нам</h2>
+                        <form>
+                            <div class="form-group">
+                                <label data-translate>Полное имя</label>
+                                <input type="text" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-translate>Адрес электронной почты</label>
+                                <input type="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-translate>Сообщение</label>
+                                <textarea placeholder="Ваше сообщение" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-translate>
+                                Отправить сообщение
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 8px;">
+                                    <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интеграция с egov.kz -->
+        <div id="egov-integration">
+            <div class="egov-container">
+                <h2 class="egov-title" data-translate>Интеграция с egov.kz</h2>
+                <div class="egov-grid">
+                    <div class="egov-card">
+                        <div class="egov-icon">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                                <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Электронные услуги</h3>
+                        <p data-translate>Получите доступ к государственным услугам в электронном формате через портал egov.kz</p>
+                        <a href="#" class="egov-link" target="_blank">
+                            Перейти на egov.kz
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="egov-card">
+                        <div class="egov-icon">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Проверка статуса</h3>
+                        <p data-translate>Отслеживайте статус ваших заявок и документов в режиме реального времени</p>
+                        <a href="#" class="egov-link" target="_blank">
+                            Проверить статус
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="egov-card">
+                        <div class="egov-icon">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate>Онлайн-запись</h3>
+                        <p data-translate>Запишитесь на прием в государственные органы через электронную систему</p>
+                        <a href="#" class="egov-link" target="_blank">
+                            Записаться онлайн
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карта -->
+        <section class="map-section">
+            <div class="container">
+                <h2 data-translate>Мы на карте</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.123456789!2d71.427777!3d51.128888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424585b6b6b6b6b6%3A0x123456789abcdef!2z0JrQvtC80L7QvdC-0LLQsNC90LjRhtC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNzAsINCa0LjQtdCy0YHQutCw0Y8g0JrQvtC80L7QvdC-0LLQsNC90LjRhtC60LDRjywgMDIwMDAw!5e0!3m2!1sru!2skz!4v1680000000000!5m2!1sru!2skz" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подключаем подвал -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Онлайн-консультант -->
+    <div id="chat-widget">
+        <button class="chat-button" onclick="toggleChat()">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 5V22L6 18H20C21.1 18 22 17.1 22 16V5C22 2.9 21.1 2 20 2ZM20 16H6L4 18V5H20V16Z" fill="currentColor"/>
+                <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor"/>
+            </svg>
+        </button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>Онлайн-консультант</h3>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message system">
+                    Добро пожаловать! Чем я могу вам помочь?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Введите сообщение...">
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Индикатор загрузки -->
+    <div id="loading-overlay"></div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/image-optimizer.js"></script>
+    <script src="js/form-validator.js"></script>
+    <script src="js/lazy-loading.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/index-content.js"></script>
+    <script src="js/header-footer-upload.js"></script>
+</body>
+</html> 

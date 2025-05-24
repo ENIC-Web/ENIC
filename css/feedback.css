@@ -1,0 +1,151 @@
+.feedback-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.feedback-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #dc3545;
+}
+
+.contact-info {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-item h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .feedback-form {
+        padding: 20px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Версия для слабовидящих */
+.visually-impaired-mode .feedback-form {
+    background: #000;
+    color: #fff;
+}
+
+.visually-impaired-mode .form-group label {
+    color: #fff;
+}
+
+.visually-impaired-mode .form-group input,
+.visually-impaired-mode .form-group select,
+.visually-impaired-mode .form-group textarea {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+.visually-impaired-mode .form-group input:focus,
+.visually-impaired-mode .form-group select:focus,
+.visually-impaired-mode .form-group textarea:focus {
+    border-color: var(--color-primary);
+}
+
+.visually-impaired-mode .contact-info {
+    background: #000;
+}
+
+.visually-impaired-mode .contact-item p {
+    color: #fff;
+} 
