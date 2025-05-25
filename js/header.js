@@ -1,167 +1,167 @@
 // Функция для загрузки шапки
-async function loadHeader() {
-    try {
-        const response = await fetch('header.html');
-        const html = await response.text();
-        
-        // Создаем временный элемент для парсинга HTML
-        const temp = document.createElement('div');
-        temp.innerHTML = html;
-        
-        // Получаем шапку
-        const header = temp.querySelector('.header');
-        
-        // Вставляем шапку в начало body
-        document.body.insertBefore(header, document.body.firstChild);
-        
-        // Инициализируем функционал шапки
-        initHeader();
-    } catch (error) {
-        console.error('Ошибка загрузки шапки:', error);
-    }
+function loadHeader() {
+    fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('header').innerHTML = html;
+            initHeader();
+        });
 }
 
-// Функция инициализации функционала шапки
+// Инициализация шапки
 function initHeader() {
-    // Переключение языка
-    const currentLang = localStorage.getItem('language') || 'ru';
-    switchLanguage(currentLang);
-    
-    document.querySelectorAll('.language-switch').forEach(btn => {
-        btn.addEventListener('click', () => {
-            switchLanguage(btn.dataset.lang);
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const nav = document.querySelector('.header__nav');
+    const body = document.body;
+
+    // Обработчик клика по кнопке меню
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+
+    // Закрытие меню при клике вне его
+    document.addEventListener('click', (e) => {
+        if (nav && nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
+    // Закрытие меню при изменении размера окна
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
+    // Инициализация переключателя языка
+    const langButtons = document.querySelectorAll('.language-switch');
+    const currentLang = localStorage.getItem('language') || 'kk';
+
+    langButtons.forEach(button => {
+        if (button.dataset.lang === currentLang) {
+            button.classList.add('active');
+        }
+
+        button.addEventListener('click', () => {
+            const lang = button.dataset.lang;
+            switchLanguage(lang);
         });
     });
 
-    // Мобильное меню
-    const menuToggle = document.querySelector('.header__menu-toggle');
-    const nav = document.querySelector('.header__nav');
-    
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
-    
-    // Закрытие мобильного меню при клике на ссылку
-    document.querySelectorAll('.header__menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('active');
-        });
-    });
-    
-    // Закрытие мобильного меню при клике вне меню
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('active');
+    // Инициализация кнопки версии для слабовидящих
+    const accessibilityBtn = document.getElementById('accessibilityToggle');
+    const mobileAccessibilityBtn = document.getElementById('mobileAccessibilityToggle');
+    const isAccessibilityMode = localStorage.getItem('accessibilityMode') === 'true';
+
+    if (isAccessibilityMode) {
+        document.body.classList.add('accessibility-mode');
+        if (accessibilityBtn) accessibilityBtn.classList.add('active');
+        if (mobileAccessibilityBtn) mobileAccessibilityBtn.classList.add('active');
+    }
+
+    [accessibilityBtn, mobileAccessibilityBtn].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                document.body.classList.toggle('accessibility-mode');
+                [accessibilityBtn, mobileAccessibilityBtn].forEach(b => {
+                    if (b) b.classList.toggle('active');
+                });
+                localStorage.setItem('accessibilityMode', document.body.classList.contains('accessibility-mode'));
+            });
         }
     });
 }
 
-// Словарь переводов
-const translations = {
-    ru: {
-        'home': 'Главная',
-        'recognition': 'Признание',
-        'accreditation': 'Аккредитация',
-        'bologna': 'Болонский процесс',
-        'news': 'Новости',
-        'contacts': 'Контакты',
-        'apply': 'Подать заявку',
-        'accessibility': 'Версия для слабовидящих'
-    },
-    kk: {
-        'home': 'Басты бет',
-        'recognition': 'Мойындау',
-        'accreditation': 'Аккредитация',
-        'bologna': 'Болон процесі',
-        'news': 'Жаңалықтар',
-        'contacts': 'Байланыстар',
-        'apply': 'Өтініш беру',
-        'accessibility': 'Көру қабілеті төмен адамдарға арналған нұсқа'
-    },
-    en: {
-        'home': 'Home',
-        'recognition': 'Recognition',
-        'accreditation': 'Accreditation',
-        'bologna': 'Bologna Process',
-        'news': 'News',
-        'contacts': 'Contacts',
-        'apply': 'Apply',
-        'accessibility': 'Accessibility version'
-    }
-};
-
-// Функция для переключения языка
+// Функция переключения языка
 function switchLanguage(lang) {
-    // Сохраняем выбранный язык
     localStorage.setItem('language', lang);
     
     // Обновляем активную кнопку
-    document.querySelectorAll('.language-switch').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-        }
+    document.querySelectorAll('.language-switch').forEach(button => {
+        button.classList.toggle('active', button.dataset.lang === lang);
     });
-    
-    // Обновляем текст на странице
+
+    // Переводим текст на странице
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
-}
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    // Получаем текущий язык из localStorage или используем русский по умолчанию
-    const currentLang = localStorage.getItem('language') || 'ru';
-    
-    // Устанавливаем начальный язык
-    switchLanguage(currentLang);
-    
-    // Добавляем обработчики событий для кнопок переключения языка
-    document.querySelectorAll('.language-switch').forEach(btn => {
-        btn.addEventListener('click', () => {
-            switchLanguage(btn.dataset.lang);
-        });
-    });
+    // Обновляем атрибут lang у html
+    document.documentElement.lang = lang;
 
-    // Мобильное меню
+    // Обновляем мета-теги
+    const metaTags = document.getElementsByTagName('meta');
+    for (let i = 0; i < metaTags.length; i++) {
+        if (metaTags[i].getAttribute('name') === 'language') {
+            metaTags[i].setAttribute('content', lang);
+        }
+    }
+
+    // Закрываем мобильное меню после смены языка
     const menuToggle = document.querySelector('.header__menu-toggle');
     const nav = document.querySelector('.header__nav');
-    
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
-
-    // Функционал версии для слабовидящих
-    const accessibilityBtn = document.getElementById('accessibilityToggle');
-    const body = document.body;
-    
-    // Проверяем сохраненные настройки
-    const isAccessibilityMode = localStorage.getItem('accessibilityMode') === 'true';
-    if (isAccessibilityMode) {
-        body.classList.add('accessibility-mode');
-        accessibilityBtn.classList.add('active');
+    if (menuToggle && nav) {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+        document.body.style.overflow = '';
     }
-    
-    // Обработчик клика по кнопке
-    accessibilityBtn.addEventListener('click', function() {
-        body.classList.toggle('accessibility-mode');
-        accessibilityBtn.classList.toggle('active');
-        
-        // Сохраняем настройки
-        localStorage.setItem('accessibilityMode', body.classList.contains('accessibility-mode'));
-    });
-});
 
-// Экспортируем функцию для использования в других скриптах
-window.switchLanguage = switchLanguage;
+    // Отправляем событие о смене языка
+    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
+}
+
+// Словарь переводов
+const translations = {
+    ru: {
+        home: 'Главная',
+        recognition: 'Признание',
+        accreditation: 'Аккредитация',
+        bologna: 'Болонский процесс',
+        news: 'Новости',
+        contacts: 'Контакты',
+        apply: 'Подать заявку',
+        visually_impaired: 'Версия для слабовидящих',
+        phone: '+7 (727) 123-45-67',
+        email: 'info@enic.kz'
+    },
+    kk: {
+        home: 'Басты бет',
+        recognition: 'Мойындау',
+        accreditation: 'Аккредитация',
+        bologna: 'Болон процесі',
+        news: 'Жаңалықтар',
+        contacts: 'Байланыстар',
+        apply: 'Өтініш беру',
+        visually_impaired: 'Көру қабілеті төмен адамдарға арналған нұсқа',
+        phone: '+7 (727) 123-45-67',
+        email: 'info@enic.kz'
+    },
+    en: {
+        home: 'Home',
+        recognition: 'Recognition',
+        accreditation: 'Accreditation',
+        bologna: 'Bologna Process',
+        news: 'News',
+        contacts: 'Contacts',
+        apply: 'Apply',
+        visually_impaired: 'Visually Impaired Version',
+        phone: '+7 (727) 123-45-67',
+        email: 'info@enic.kz'
+    }
+};
 
 // Загружаем шапку при загрузке страницы
 document.addEventListener('DOMContentLoaded', loadHeader); 

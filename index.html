@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate>ENIC - Ұлттық орталық</title>
+    <title data-translate="page_title">ENIC - Ұлттық орталық</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form-styles.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -210,6 +210,9 @@ body {
     font-size: 1rem;
     position: relative;
     overflow: hidden;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
 }
 
 .btn::after {
@@ -230,29 +233,21 @@ body {
     height: 300px;
 }
 
-.btn-primary {
-    background-color: var(--color-secondary);
-    color: #fff;
-    box-shadow: var(--shadow-base);
-}
-
-.btn-primary:hover {
-    background-color: #E55A2A;
+.btn:hover {
+    background: var(--color-secondary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }
 
 .btn-outline {
-    border: 2px solid #fff;
-    color: #fff;
     background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
 }
 
 .btn-outline:hover {
-    background: #fff;
-    color: var(--color-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    background: var(--color-primary);
+    color: #fff;
 }
 
 /* Сервисы */
@@ -1094,7 +1089,7 @@ body {
 }
 
 .egov-link {
-    color: var(--color-secondary);
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -1103,7 +1098,7 @@ body {
     transition: all 0.3s ease;
     padding: 8px 16px;
     border-radius: 20px;
-    background: rgba(255, 107, 53, 0.1);
+    background: var(--color-primary);
 }
 
 .egov-link:hover {
@@ -1158,70 +1153,47 @@ body {
     z-index: 1000;
 }
 
-.chat-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.chat-button:hover {
-    transform: scale(1.1);
-    background: var(--color-secondary);
-}
-
-.chat-button svg {
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-}
-
 .chat-window {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.chat-window.active {
-    display: flex;
+    background: #F0F4FF;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(26,59,110,0.18);
+    border-left: 5px solid #FF6B35;
+    color: #1A3B6E;
+    padding: 0;
 }
 
 .chat-header {
-    background: var(--color-primary);
+    background: #4A90E2;
     color: #fff;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.chat-header h3 {
-    margin: 0;
-    font-size: 1.1rem;
+    border-radius: 18px 18px 0 0;
+    padding: 16px 20px;
 }
 
 .chat-close {
     background: none;
     border: none;
     color: #fff;
+    font-size: 1.5rem;
     cursor: pointer;
-    padding: 5px;
+}
+
+.chat-button {
+    background: #4A90E2;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(26,59,110,0.15);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.chat-button:hover {
+    background: #FF6B35;
+    box-shadow: 0 8px 24px rgba(26,59,110,0.22);
 }
 
 .chat-messages {
@@ -1289,12 +1261,12 @@ body {
                 </svg>
             </div>
             <div class="container">
-                <h1 class="animate-fade-in" data-translate>ЖОҒАРЫ БІЛІМ БЕРУДІ ДАМЫТУ ҰЛТТЫҚ ОРТАЛЫҒЫ</h1>
-                <p class="animate-fade-in" data-translate>Білім беру сапасын арттыру және халықаралық интеграцияға жәрдемдесу</p>
+                <h1 class="animate-fade-in" data-translate="main_title">ЖОҒАРЫ БІЛІМ БЕРУДІ ДАМЫТУ ҰЛТТЫҚ ОРТАЛЫҒЫ</h1>
+                <p class="animate-fade-in" data-translate="main_subtitle">Білім беру сапасын арттыру және халықаралық интеграцияға жәрдемдесу</p>
                 <div class="hero__buttons">
-                    <a href="recognition.html" class="btn btn-primary hover-lift" data-translate>Подать заявку</a>
-                    <a href="#status" class="btn btn-outline hover-lift" data-translate>Проверить статус</a>
-                    <a href="#search" class="btn btn-outline hover-lift" data-translate>Поиск вуза</a>
+                    <a href="recognition.html" class="btn btn-primary hover-lift" data-translate="apply">Подать заявку</a>
+                    <a href="#status" class="btn btn-outline hover-lift" data-translate="check_status">Проверить статус</a>
+                    <a href="#search" class="btn btn-outline hover-lift" data-translate="find_university">Поиск вуза</a>
                 </div>
             </div>
         </section>
@@ -1302,7 +1274,7 @@ body {
         <!-- Сервисы -->
         <section class="services">
             <div class="container">
-                <h2 class="animate-fade-in" data-translate>Наши сервисы</h2>
+                <h2 class="animate-fade-in" data-translate="services_title">Наши сервисы</h2>
                 <div class="services__grid">
                     <div class="service-card card-hover animate-fade-in">
                         <div class="service-icon">
@@ -1311,9 +1283,9 @@ body {
                                 <path d="M7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H14V17H7V15Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Признание документов</h3>
-                        <p data-translate>Онлайн-форма подачи заявки на признание зарубежных документов об образовании</p>
-                        <a href="recognition.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                        <h3 data-translate="recognition">Признание документов</h3>
+                        <p data-translate="recognition_desc">Онлайн-форма подачи заявки на признание зарубежных документов об образовании</p>
+                        <a href="recognition.html" class="btn btn-outline hover-lift" data-translate="learn_more">Подробнее</a>
                     </div>
                     <div class="service-card card-hover animate-fade-in">
                         <div class="service-icon">
@@ -1321,9 +1293,9 @@ body {
                                 <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Аккредитация</h3>
-                        <p data-translate>Информация о процедурах аккредитации и доступ к реестрам</p>
-                        <a href="accreditation.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                        <h3 data-translate="accreditation">Аккредитация</h3>
+                        <p data-translate="accreditation_desc">Информация о процедурах аккредитации и доступ к реестрам</p>
+                        <a href="accreditation.html" class="btn btn-outline hover-lift" data-translate="learn_more">Подробнее</a>
                     </div>
                     <div class="service-card card-hover animate-fade-in">
                         <div class="service-icon">
@@ -1331,9 +1303,9 @@ body {
                                 <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Болонский процесс</h3>
-                        <p data-translate>Информация о Болонском процессе и системе квалификаций</p>
-                        <a href="bologna.html" class="btn btn-outline hover-lift" data-translate>Подробнее</a>
+                        <h3 data-translate="bologna">Болонский процесс</h3>
+                        <p data-translate="bologna_desc">Информация о Болонском процессе и системе квалификаций</p>
+                        <a href="bologna.html" class="btn btn-outline hover-lift" data-translate="learn_more">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -1342,7 +1314,7 @@ body {
         <!-- Новости -->
         <section class="news">
             <div class="container">
-                <h2 class="animate-fade-in" data-translate>Новости и объявления</h2>
+                <h2 class="animate-fade-in" data-translate="news_title">Новости и объявления</h2>
                 <div class="news__grid">
                     <div class="news-card">
                         <div class="news-card__image">
@@ -1442,19 +1414,19 @@ body {
         <!-- FAQ -->
         <section class="faq">
             <div class="container">
-                <h2 data-translate>Часто задаваемые вопросы</h2>
+                <h2 data-translate="faq_title">Часто задаваемые вопросы</h2>
                 <div class="faq-list">
                     <div class="faq-item">
-                        <h4 data-translate>Как подать заявку на признание?</h4>
-                        <p data-translate>Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы. Процесс занимает не более 15 минут.</p>
+                        <h4 data-translate="faq_question1">Как подать заявку на признание?</h4>
+                        <p data-translate="faq_answer1">Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы. Процесс занимает не более 15 минут.</p>
                     </div>
                     <div class="faq-item">
-                        <h4 data-translate>Какие документы нужны для аккредитации?</h4>
-                        <p data-translate>Список документов зависит от типа аккредитации. Ознакомьтесь с подробными требованиями в соответствующем разделе на нашем сайте.</p>
+                        <h4 data-translate="faq_question2">Какие документы нужны для аккредитации?</h4>
+                        <p data-translate="faq_answer2">Список документов зависит от типа аккредитации. Ознакомьтесь с подробными требованиями в соответствующем разделе на нашем сайте.</p>
                     </div>
                     <div class="faq-item">
-                        <h4 data-translate>Где найти информацию о Болонском процессе?</h4>
-                        <p data-translate>Вся актуальная информация о Болонском процессе размещена в специальном разделе на сайте. Там вы найдете последние новости и изменения.</p>
+                        <h4 data-translate="faq_question3">Где найти информацию о Болонском процессе?</h4>
+                        <p data-translate="faq_answer3">Вся актуальная информация о Болонском процессе размещена в специальном разделе на сайте. Там вы найдете последние новости и изменения.</p>
                     </div>
                 </div>
                 <div class="faq-more">
@@ -1471,21 +1443,21 @@ body {
         <!-- Контакты -->
         <section class="contacts">
             <div class="container">
-                <h2 data-translate>Контакты</h2>
+                <h2 data-translate="contacts_title">Контакты</h2>
                 <div class="contact-flex">
                     <div class="contact-details">
                         <h3>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
                             </svg>
-                            <span data-translate>Адрес</span>
+                            <span data-translate="address_title">Адрес</span>
                         </h3>
                         <p>г. Астана, ул. Сыганак, 70, офис 202</p>
                         <h3>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
                             </svg>
-                            <span data-translate>Телефон</span>
+                            <span data-translate="phone_title">Телефон</span>
                         </h3>
                         <p>+7 (7172) 57-20-75</p>
                         <h3>
@@ -1497,26 +1469,21 @@ body {
                         <p>cbpiam@n-k.kz</p>
                     </div>
                     <div class="contact-form">
-                        <h2 data-translate>Напишите нам</h2>
+                        <h2 data-translate="write_us">Напишите нам</h2>
                         <form>
                             <div class="form-group">
-                                <label data-translate>Полное имя</label>
+                                <label data-translate="full_name">Полное имя</label>
                                 <input type="text" placeholder="Ваше имя" required>
                             </div>
                             <div class="form-group">
-                                <label data-translate>Адрес электронной почты</label>
+                                <label data-translate="email_address">Адрес электронной почты</label>
                                 <input type="email" placeholder="E-mail" required>
                             </div>
                             <div class="form-group">
-                                <label data-translate>Сообщение</label>
+                                <label data-translate="message">Сообщение</label>
                                 <textarea placeholder="Ваше сообщение" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" data-translate>
-                                Отправить сообщение
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="margin-left: 8px;">
-                                    <path d="M10 0L8.59 1.41L14.17 7H0V9H14.17L8.59 14.59L10 16L20 8L10 0Z" fill="currentColor"/>
-                                </svg>
-                            </button>
+                            <button type="submit" class="btn btn-primary" data-translate="send_message">Отправить сообщение</button>
                         </form>
                     </div>
                 </div>
@@ -1526,7 +1493,7 @@ body {
         <!-- Интеграция с egov.kz -->
         <div id="egov-integration">
             <div class="egov-container">
-                <h2 class="egov-title" data-translate>Интеграция с egov.kz</h2>
+                <h2 class="egov-title" data-translate="egov_title">Интеграция с egov.kz</h2>
                 <div class="egov-grid">
                     <div class="egov-card">
                         <div class="egov-icon">
@@ -1535,9 +1502,9 @@ body {
                                 <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Электронные услуги</h3>
-                        <p data-translate>Получите доступ к государственным услугам в электронном формате через портал egov.kz</p>
-                        <a href="#" class="egov-link" target="_blank">
+                        <h3 data-translate="egov_services">Электронные услуги</h3>
+                        <p data-translate="egov_services_desc">Получите доступ к государственным услугам в электронном формате через портал egov.kz</p>
+                        <a href="#" class="egov-link" target="_blank" data-translate="go_to_egov">
                             Перейти на egov.kz
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
@@ -1550,9 +1517,9 @@ body {
                                 <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Проверка статуса</h3>
-                        <p data-translate>Отслеживайте статус ваших заявок и документов в режиме реального времени</p>
-                        <a href="#" class="egov-link" target="_blank">
+                        <h3 data-translate="egov_status">Проверка статуса</h3>
+                        <p data-translate="egov_status_desc">Отслеживайте статус ваших заявок и документов в режиме реального времени</p>
+                        <a href="#" class="egov-link" target="_blank" data-translate="check_status">
                             Проверить статус
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
@@ -1565,9 +1532,9 @@ body {
                                 <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-translate>Онлайн-запись</h3>
-                        <p data-translate>Запишитесь на прием в государственные органы через электронную систему</p>
-                        <a href="#" class="egov-link" target="_blank">
+                        <h3 data-translate="egov_appointment">Онлайн-запись</h3>
+                        <p data-translate="egov_appointment_desc">Запишитесь на прием в государственные органы через электронную систему</p>
+                        <a href="#" class="egov-link" target="_blank" data-translate="make_appointment">
                             Записаться онлайн
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
@@ -1581,7 +1548,7 @@ body {
         <!-- Карта -->
         <section class="map-section">
             <div class="container">
-                <h2 data-translate>Мы на карте</h2>
+                <h2 data-translate="map_title">Мы на карте</h2>
                 <div class="map-container">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.123456789!2d71.427777!3d51.128888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424585b6b6b6b6b6%3A0x123456789abcdef!2z0JrQvtC80L7QvdC-0LLQsNC90LjRhtC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNzAsINCa0LjQtdCy0YHQutCw0Y8g0JrQvtC80L7QvdC-0LLQsNC90LjRhtC60LDRjywgMDIwMDAw!5e0!3m2!1sru!2skz!4v1680000000000!5m2!1sru!2skz" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -1595,24 +1562,24 @@ body {
     <!-- Онлайн-консультант -->
     <div id="chat-widget">
         <button class="chat-button" onclick="toggleChat()">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 2H4C2.9 2 2 2.9 2 5V22L6 18H20C21.1 18 22 17.1 22 16V5C22 2.9 21.1 2 20 2ZM20 16H6L4 18V5H20V16Z" fill="currentColor"/>
                 <path d="M7 9H17V11H7V9ZM7 12H14V14H7V12Z" fill="currentColor"/>
             </svg>
         </button>
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <h3>Онлайн-консультант</h3>
-                <button class="chat-close" onclick="toggleChat()">×</button>
+                <h3 data-translate="chat_title">Онлайн-консультант</h3>
+                <button class="chat-close" onclick="toggleChat()" data-translate="chat_close">×</button>
             </div>
             <div class="chat-messages" id="chatMessages">
-                <div class="message system">
+                <div class="message system" data-translate="chat_welcome">
                     Добро пожаловать! Чем я могу вам помочь?
                 </div>
             </div>
             <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Введите сообщение...">
-                <button onclick="sendMessage()">Отправить</button>
+                <input type="text" id="chatInput" data-translate="chat_placeholder" placeholder="Введите сообщение...">
+                <button onclick="sendMessage()" data-translate="chat_send">Отправить</button>
             </div>
         </div>
     </div>
@@ -1622,11 +1589,11 @@ body {
 
     <script src="js/translations.js"></script>
     <script src="js/accessibility.js"></script>
+    <script src="js/header.js"></script>
     <script src="js/main.js"></script>
     <script src="js/image-optimizer.js"></script>
     <script src="js/form-validator.js"></script>
     <script src="js/lazy-loading.js"></script>
-    <script src="js/mobile-nav.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/index-content.js"></script>
     <script src="js/header-footer-upload.js"></script>

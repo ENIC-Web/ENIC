@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mobile-nav.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/chatbot.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <script src="js/breadcrumbs.js" defer></script>
     <style>
         body {
             margin: 0;
@@ -797,6 +800,84 @@
         .form-group.error .custom-file-label {
             border-color: #dc3545;
         }
+
+        /* Основные стили кнопок */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+
+        /* Основная кнопка */
+        .btn-primary {
+            background: var(--color-secondary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #E55A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Кнопка с обводкой */
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Стили для версии для слабовидящих */
+        body.accessibility-mode .btn {
+            font-size: 18px;
+            padding: 14px 28px;
+            border-radius: 10px;
+        }
+
+        body.accessibility-mode .btn::before {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -804,8 +885,6 @@
     <div id="header"></div>
 
     <main>
-
-
         <!-- Баннер -->
         <section class="page-banner">
             <div class="floating-element">
