@@ -10,23 +10,58 @@
 }
 
 .footer {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, #1A3B6E 80%, #4A90E2 100%);
     color: #fff;
-    padding: 60px 0 30px;
+    padding: 80px 0 40px;
     margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer__decor {
+    position: absolute;
+    left: 0; right: 0; top: 0; height: 120px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
 }
 
 .footer__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
     margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer__col {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUpFooter 1s forwards;
+    background: rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 28px 22px 18px 22px;
+    box-shadow: 0 2px 12px 0 rgba(26,59,110,0.07);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.footer__col:nth-child(1) { animation-delay: 0.2s; }
+.footer__col:nth-child(2) { animation-delay: 0.4s; }
+.footer__col:nth-child(3) { animation-delay: 0.6s; }
+.footer__col:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInUpFooter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footer__col h3 {
     color: #fff;
     margin-bottom: 20px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
 }
 
 .footer__col ul {
@@ -36,17 +71,19 @@
 }
 
 .footer__col ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer__col a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 2px 8px rgba(26,59,110,0.10);
 }
 
 .footer__col a:hover {
-    color: #fff;
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px var(--color-secondary), 0 2px 8px rgba(26,59,110,0.15);
 }
 
 .footer__contacts li {
@@ -57,63 +94,139 @@
 
 .footer__social {
     display: flex;
-    gap: 15px;
+    gap: 18px;
+    margin-top: 10px;
 }
 
 .footer__social a {
-    color: #fff;
-    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-size: 1.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    background: #fff;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 8px rgba(26,59,110,0.10);
+    position: relative;
+    overflow: hidden;
 }
 
 .footer__social a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
+    background: var(--color-secondary);
+    color: #fff;
+    transform: scale(1.15) rotate(-6deg);
+    box-shadow: 0 4px 16px var(--color-secondary);
 }
 
 .footer__social svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     fill: currentColor;
 }
 
 .footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.15);
     padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .footer__links {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     flex-wrap: wrap;
 }
 
+.footer__links a {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s, text-shadow 0.3s, color 0.3s;
+    text-shadow: 0 2px 8px rgba(26,59,110,0.10);
+}
+.footer__links a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+    text-shadow: 0 0 8px var(--color-accent), 0 2px 8px rgba(26,59,110,0.15);
+}
+
 .footer__copyright {
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
+    font-size: 0.98rem;
+    opacity: 0.7;
 }
 
 @media (max-width: 768px) {
     .footer {
         padding: 40px 0 20px;
     }
-
     .footer__grid {
         gap: 30px;
     }
+    .footer__col {
+        padding: 18px 10px 10px 10px;
+    }
+}
+
+.footer-wave {
+    width: 100%;
+    height: 100px;
+    display: block;
+    animation: waveMove 8s linear infinite alternate;
+}
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-40px); }
+}
+.footer-bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.18;
+    pointer-events: none;
+    animation: floatBubble 10s ease-in-out infinite;
+}
+.bubble1 {
+    width: 38px; height: 38px;
+    left: 12%; top: 30px;
+    background: var(--color-accent);
+    animation-delay: 0s;
+}
+.bubble2 {
+    width: 24px; height: 24px;
+    left: 80%; top: 18px;
+    background: var(--color-secondary);
+    animation-delay: 2s;
+}
+.bubble3 {
+    width: 18px; height: 18px;
+    left: 60%; top: 60px;
+    background: #fff;
+    opacity: 0.10;
+    animation-delay: 4s;
+}
+@keyframes floatBubble {
+    0% { transform: translateY(0) scale(1); opacity: 0.18; }
+    50% { transform: translateY(-18px) scale(1.15); opacity: 0.28; }
+    100% { transform: translateY(0) scale(1); opacity: 0.18; }
 }
 </style>
+
+<!-- SVG-декор с анимацией -->
+<div class="footer__decor">
+    <svg class="footer-wave" width="100%" height="100" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="footerWavePath" d="M0,80 C360,120 1080,0 1440,80 L1440,100 L0,100 Z" fill="#fff" fill-opacity="0.10"/>
+    </svg>
+    <div class="footer-bubble bubble1"></div>
+    <div class="footer-bubble bubble2"></div>
+    <div class="footer-bubble bubble3"></div>
+</div>
 
 <div class="container">
     <div class="footer__grid">
@@ -164,22 +277,16 @@
                         <path d="M16 8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8C0 11.8 2.9 14.9 6.6 15.8V10.3H4.8V8H6.6V6.2C6.6 4.3 7.7 3.3 9.4 3.3C10.2 3.3 11 3.4 11 3.4V5.3H10.1C9.2 5.3 8.9 5.8 8.9 6.4V8H10.9L10.6 10.3H8.9V15.8C12.6 14.9 15.5 11.8 15.5 8H16Z" fill="currentColor"/>
                     </svg>
                 </a>
-                <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 0C5.8 0 5.4 0 4.6 0.1C3.8 0.2 3.3 0.3 2.9 0.5C2.4 0.7 2 1 1.6 1.4C1.2 1.8 0.9 2.2 0.7 2.7C0.5 3.1 0.4 3.6 0.3 4.4C0.2 5.2 0 5.6 0 7.8C0 10 0 10.4 0.1 11.2C0.2 12 0.3 12.5 0.5 12.9C0.7 13.4 1 13.8 1.4 14.2C1.8 14.6 2.2 14.9 2.7 15.1C3.1 15.3 3.6 15.4 4.4 15.5C5.2 15.6 5.6 15.8 7.8 15.8C10 15.8 10.4 15.8 11.2 15.7C12 15.6 12.5 15.5 12.9 15.3C13.4 15.1 13.8 14.8 14.2 14.4C14.6 14 14.9 13.6 15.1 13.1C15.3 12.7 15.4 12.2 15.5 11.4C15.6 10.6 15.8 10.2 15.8 8C15.8 5.8 15.8 5.4 15.7 4.6C15.6 3.8 15.5 3.3 15.3 2.9C15.1 2.4 14.8 2 14.4 1.6C14 1.2 13.6 0.9 13.1 0.7C12.7 0.5 12.2 0.4 11.4 0.3C10.6 0.2 10.2 0 8 0ZM8 1.4C10.1 1.4 10.5 1.4 11.2 1.5C11.9 1.6 12.3 1.7 12.5 1.8C12.8 1.9 13 2.1 13.2 2.3C13.4 2.5 13.6 2.7 13.7 3C13.8 3.2 13.9 3.6 14 4.3C14.1 5 14.1 5.4 14.1 7.5C14.1 9.6 14.1 10 14 10.7C13.9 11.4 13.8 11.8 13.7 12C13.6 12.3 13.4 12.5 13.2 12.7C13 12.9 12.8 13.1 12.5 13.2C12.3 13.3 11.9 13.4 11.2 13.5C10.5 13.6 10.1 13.6 8 13.6C5.9 13.6 5.5 13.6 4.8 13.5C4.1 13.4 3.7 13.3 3.5 13.2C3.2 13.1 3 12.9 2.8 12.7C2.6 12.5 2.4 12.3 2.3 12C2.2 11.8 2.1 11.4 2 10.7C1.9 10 1.9 9.6 1.9 7.5C1.9 5.4 1.9 5 2 4.3C2.1 3.6 2.2 3.2 2.3 3C2.4 2.7 2.6 2.5 2.8 2.3C3 2.1 3.2 1.9 3.5 1.8C3.7 1.7 4.1 1.6 4.8 1.5C5.5 1.4 5.9 1.4 8 1.4ZM8 3.8C6.7 3.8 5.6 4.9 5.6 6.2C5.6 7.5 6.7 8.6 8 8.6C9.3 8.6 10.4 7.5 10.4 6.2C10.4 4.9 9.3 3.8 8 3.8ZM8 7.2C7.3 7.2 6.8 6.7 6.8 6C6.8 5.3 7.3 4.8 8 4.8C8.7 4.8 9.2 5.3 9.2 6C9.2 6.7 8.7 7.2 8 7.2ZM12.4 3.8C12.4 3.5 12.1 3.2 11.8 3.2C11.5 3.2 11.2 3.5 11.2 3.8C11.2 4.1 11.5 4.4 11.8 4.4C12.1 4.4 12.4 4.1 12.4 3.8Z" fill="currentColor"/>
-                    </svg>
-                </a>
             </div>
         </div>
     </div>
     <div class="footer__bottom">
         <div class="footer__links">
             <a href="privacy.html" data-translate>Политика конфиденциальности</a>
-            <a href="#" data-translate>Закупки</a>
-            <a href="#" data-translate>Вакансии</a>
+
         </div>
         <div class="footer__copyright">
-            © 2024 ENIC. <span data-translate>Все права защищены</span>
+            © 2025 ENIC. <span data-translate>Все права защищены</span>
         </div>
     </div>
 </div> 

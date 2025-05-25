@@ -8,13 +8,13 @@
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M14.5 11.5L12.5 9.5C12.2 9.2 11.7 9.1 11.3 9.3L9.8 10.1C9.1 9.7 8.3 9.3 7.5 8.9C6.7 8.1 6.3 7.3 5.9 6.6L6.7 5.1C6.9 4.7 6.8 4.2 6.5 3.9L4.5 1.9C4.2 1.6 3.7 1.5 3.3 1.7L1.5 2.5C1.1 2.7 0.8 3.1 0.8 3.6C0.8 9.2 5.2 13.6 10.8 13.6C11.3 13.6 11.7 13.3 11.9 12.9L12.7 11.1C12.9 10.7 12.8 10.2 12.5 9.9L14.5 11.5Z" fill="currentColor"/>
                         </svg>
-                        +7 (727) 123-45-67
+                        +7 (7172) 57-20-75
                     </a>
                     <a href="mailto:info@enic.kz" class="header__contact-item">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M14 3H2C1.4 3 1 3.4 1 4V12C1 12.6 1.4 13 2 13H14C14.6 13 15 12.6 15 12V4C15 3.4 14.6 3 14 3ZM13.4 4L8 8.5L2.6 4H13.4ZM2 12V4.8L7.7 9.4C7.8 9.5 7.9 9.5 8 9.5C8.1 9.5 8.2 9.5 8.3 9.4L14 4.8V12H2Z" fill="currentColor"/>
                         </svg>
-                        info@enic.kz
+                        cbpiam@n-k.kz
                     </a>
                 </div>
                 <div class="header__top-right">
@@ -37,18 +37,54 @@
     <div class="header__main">
         <div class="container">
             <div class="header__main-content">
-                <a href="index.html" class="header__logo">
-                    <img src="images/logo.svg" alt="ENIC" width="120" height="40">
+                <a href="index.html" class="header__logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Щит -->
+                        <path d="M32 6C44 10 58 12 58 24C58 44 32 58 32 58C32 58 6 44 6 24C6 12 20 10 32 6Z" fill="#1A3B6E" stroke="#FFD700" stroke-width="2"/>
+                        <!-- Книга -->
+                        <rect x="18" y="26" width="28" height="16" rx="3" fill="#fff" stroke="#4A90E2" stroke-width="2"/>
+                        <line x1="32" y1="26" x2="32" y2="42" stroke="#FFD700" stroke-width="2"/>
+                        <line x1="24" y1="30" x2="40" y2="30" stroke="#4A90E2" stroke-width="1.5"/>
+                        <line x1="24" y1="34" x2="40" y2="34" stroke="#4A90E2" stroke-width="1.5"/>
+                        <line x1="24" y1="38" x2="40" y2="38" stroke="#4A90E2" stroke-width="1.5"/>
+                        <!-- Лавровый венок -->
+                        <path d="M12 38C16 48 32 54 32 54C32 54 48 48 52 38" stroke="#43A047" stroke-width="2" fill="none"/>
+                        <path d="M14 44C16 46 20 48 24 50" stroke="#43A047" stroke-width="1.5" fill="none"/>
+                        <path d="M50 44C48 46 44 48 40 50" stroke="#43A047" stroke-width="1.5" fill="none"/>
+                        <!-- Солнце/сияние -->
+                        <circle cx="32" cy="20" r="4" fill="#FFD700"/>
+                        <g stroke="#FFD700" stroke-width="1.2">
+                            <line x1="32" y1="12" x2="32" y2="4"/>
+                            <line x1="40" y1="16" x2="46" y2="10"/>
+                            <line x1="24" y1="16" x2="18" y2="10"/>
+                        </g>
+
+                    <span style="font-size: 1.2rem; font-weight: bold; color: #1A3B6E;">ENIC</span>
                 </a>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li><a href="index.html" data-translate="home">Главная</a></li>
+                        <li><a href="index.html" data-translate="nav_home">Главная</a></li>
                         <li><a href="recognition.html" data-translate="recognition">Признание</a></li>
                         <li><a href="accreditation.html" data-translate="accreditation">Аккредитация</a></li>
                         <li><a href="bologna.html" data-translate="bologna">Болонский процесс</a></li>
                         <li><a href="news.html" data-translate="news">Новости</a></li>
                         <li><a href="contacts.html" data-translate="contacts">Контакты</a></li>
                     </ul>
+                    <!-- Мобильные элементы управления -->
+                    <div class="mobile-controls">
+                        <button class="mobile-accessibility-btn" id="mobileAccessibilityToggle" aria-label="Версия для слабовидящих">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2C5.58 2 2 5.58 2 10C2 14.42 5.58 18 10 18C14.42 18 18 14.42 18 10C18 5.58 14.42 2 10 2ZM10 16C6.69 16 4 13.31 4 10C4 6.69 6.69 4 10 4C13.31 4 16 6.69 16 10C16 13.31 13.31 16 10 16Z" fill="currentColor"/>
+                                <path d="M10 6C8.34 6 7 7.34 7 9C7 10.66 8.34 12 10 12C11.66 12 13 10.66 13 9C13 7.34 11.66 6 10 6ZM10 10C9.45 10 9 9.55 9 9C9 8.45 9.45 8 10 8C10.55 8 11 8.45 11 9C11 9.55 10.55 10 10 10Z" fill="currentColor"/>
+                            </svg>
+                            <span data-translate="visually_impaired">Версия для слабовидящих</span>
+                        </button>
+                        <div class="mobile-language-switcher">
+                            <button class="language-switch" data-lang="kk">ҚАЗ</button>
+                            <button class="language-switch" data-lang="ru">РУС</button>
+                            <button class="language-switch" data-lang="en">ENG</button>
+                        </div>
+                    </div>
                 </nav>
                 <div class="header__actions">
                     <a href="application.html" class="btn btn-primary1" data-translate="apply">Подать заявку</a>
@@ -127,9 +163,11 @@
 }
 
 .header__logo img {
-    height: 40px;
+    height: 56px;
     width: auto;
     transition: transform 0.3s;
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
 }
 
 .header__logo img:hover {
@@ -201,7 +239,83 @@
 .btn-primary1:hover {
     background: #E55A2A;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+    box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+}
+
+/* Кнопка с обводкой */
+.btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Кнопка доступности */
+.accessibility-btn,
+.mobile-accessibility-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-secondary);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+}
+
+.accessibility-btn:hover,
+.mobile-accessibility-btn:hover {
+    background: #E55A2A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Кнопки фильтра */
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* Кнопки пагинации */
+.pagination-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-btn.active,
+.pagination-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
 }
 
 /* Переключатель языка */
@@ -279,43 +393,38 @@
     .header__main {
         padding: 12px 0;
     }
+
+    .header__menu-toggle {
+        display: block !important;
+    }
     
     .header__nav {
-        display: none;
-    }
-    
-    .header__menu-toggle {
-        display: block;
-    }
-    
-    .header__menu-toggle.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-    
-    .header__menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-        transform: scale(0);
-    }
-    
-    .header__menu-toggle.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        position: fixed !important;
+        top: 72px !important;
+        left: -300px !important;
+        right: auto !important;
+        width: 300px !important;
+        height: calc(100vh - 72px) !important;
+        background: #fff !important;
+        padding: 20px !important;
+        box-shadow: 4px 0 12px rgba(26, 59, 110, 0.1) !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+        transition: left 0.3s ease !important;
+        transform: none !important;
     }
     
     .header__nav.active {
-        display: block;
-        position: fixed;
-        top: 72px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 72px);
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 4px 12px rgba(26, 59, 110, 0.1);
+        left: 0 !important;
+        right: auto !important;
     }
     
     .header__menu {
         flex-direction: column;
         gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
     
     .header__menu li {
@@ -326,10 +435,60 @@
         display: block;
         padding: 16px 0;
         font-size: 16px;
+        color: var(--color-primary);
+        font-weight: 500;
+        text-align: left;
+        transition: all 0.3s;
+    }
+    
+    .header__menu a:hover {
+        color: var(--color-secondary);
+        background: rgba(26, 59, 110, 0.05);
+        padding-left: 10px;
     }
     
     .header__menu a::after {
         display: none;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
+    
+    .mobile-accessibility-btn {
+        display: flex;
+    }
+    
+    .mobile-language-switcher {
+        display: flex;
+    }
+    
+    .mobile-accessibility-btn:hover {
+        background: var(--color-secondary);
+        transform: translateY(-2px);
+    }
+    
+    .mobile-language-switcher .language-switch {
+        flex: 1;
+        padding: 8px;
+        font-size: 14px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+    
+    .mobile-language-switcher .language-switch.active {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #fff;
+    }
+    
+    .mobile-language-switcher .language-switch:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
     }
 }
 
@@ -352,77 +511,156 @@
     }
 }
 
-/* Стили для кнопки версии для слабовидящих */
-.accessibility-btn {
-    display: flex;
+/* Стили для версии для слабовидящих */
+body.accessibility-mode .btn {
+    font-size: 18px;
+    padding: 14px 28px;
+    border-radius: 10px;
+}
+
+body.accessibility-mode .btn::before {
+    display: none;
+}
+
+/* Мобильные элементы управления */
+.mobile-controls {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(26, 59, 110, 0.1);
+    margin-top: 20px;
+}
+
+.mobile-accessibility-btn {
+    display: none;
     align-items: center;
-    gap: 8px;
-    background: var(--color-secondary);
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: var(--color-primary);
     color: #fff;
-    font-size: 14px;
-    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
 }
 
-.accessibility-btn:hover {
-    background: #E55A2A;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
-    color: #fff;
+.mobile-language-switcher {
+    display: none;
+    gap: 8px;
+    background: var(--color-primary);
+    padding: 8px;
+    border-radius: 8px;
 }
 
-.accessibility-btn svg {
-    width: 20px;
-    height: 20px;
-    color: #fff;
-}
-
-/* Стили для версии для слабовидящих */
-body.accessibility-mode {
-    font-size: 18px;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-}
-
-body.accessibility-mode * {
-    font-family: Arial, sans-serif !important;
-}
-
-body.accessibility-mode .header__menu a,
-body.accessibility-mode .btn,
-body.accessibility-mode p,
-body.accessibility-mode h1,
-body.accessibility-mode h2,
-body.accessibility-mode h3,
-body.accessibility-mode h4,
-body.accessibility-mode h5,
-body.accessibility-mode h6 {
-    font-weight: 700 !important;
-}
-
-body.accessibility-mode .header__menu a::after {
-    height: 3px;
-}
-
-/* Адаптивность */
 @media (max-width: 992px) {
-    .accessibility-btn span {
+    .header__top {
         display: none;
     }
     
-    .accessibility-btn {
-        padding: 6px;
+    .header__main {
+        padding: 12px 0;
     }
-}
 
-@media (max-width: 768px) {
-    .accessibility-btn {
+    .header__menu-toggle {
+        display: block !important;
+    }
+    
+    .header__nav {
+        position: fixed !important;
+        top: 72px !important;
+        left: -300px !important;
+        right: auto !important;
+        width: 300px !important;
+        height: calc(100vh - 72px) !important;
+        background: #fff !important;
+        padding: 20px !important;
+        box-shadow: 4px 0 12px rgba(26, 59, 110, 0.1) !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+        transition: left 0.3s ease !important;
+        transform: none !important;
+    }
+    
+    .header__nav.active {
+        left: 0 !important;
+        right: auto !important;
+    }
+    
+    .header__menu {
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .header__menu li {
+        border-bottom: 1px solid rgba(26, 59, 110, 0.1);
+    }
+    
+    .header__menu a {
+        display: block;
+        padding: 16px 0;
+        font-size: 16px;
+        color: var(--color-primary);
+        font-weight: 500;
+        text-align: left;
+        transition: all 0.3s;
+    }
+    
+    .header__menu a:hover {
+        color: var(--color-secondary);
+        background: rgba(26, 59, 110, 0.05);
+        padding-left: 10px;
+    }
+    
+    .header__menu a::after {
         display: none;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
+    
+    .mobile-accessibility-btn {
+        display: flex;
+    }
+    
+    .mobile-language-switcher {
+        display: flex;
+    }
+    
+    .mobile-accessibility-btn:hover {
+        background: var(--color-secondary);
+        transform: translateY(-2px);
+    }
+    
+    .mobile-language-switcher .language-switch {
+        flex: 1;
+        padding: 8px;
+        font-size: 14px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+    
+    .mobile-language-switcher .language-switch.active {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #fff;
+    }
+    
+    .mobile-language-switcher .language-switch:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
     }
 }
 </style>

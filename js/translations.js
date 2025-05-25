@@ -120,6 +120,10 @@ const translations = {
         news_read_more: 'Толығырақ',
         pagination_prev: 'Алдыңғы',
         pagination_next: 'Келесі',
+        news_date: '{{date}} наурыз 2024',
+        news_tag_education: 'Білім беру',
+        news_tag_news: 'Жаңалықтар',
+        news_tag_accreditation: 'Аккредитация',
 
         // Страница байланыс
         contacts_subtitle: 'Байланыс ақпараты',
@@ -165,65 +169,65 @@ const translations = {
         'bologna_desc': 'Болон процесі және біліктілік жүйесі туралы ақпарат',
         
         // FAQ
-        'faq': 'Жиі қойылатын сұрақтар',
-        'how_to_apply': 'Қалай өтініш беруге болады?',
-        'how_to_apply_answer': 'Сіз біздің сайт арқылы онлайн өтініш бере аласыз, форманы толтырып, қажетті құжаттарды қоса аласыз.',
-        'what_documents': 'Аккредитация үшін қандай құжаттар қажет?',
-        'what_documents_answer': 'Құжаттар тізімі аккредитация түріне байланысты. Сәйкес бөлімде талаптармен танысыңыз.',
-        'bologna_info': 'Болон процесі туралы ақпаратты қайдан табуға болады?',
-        'bologna_info_answer': 'Барлық ақпарат сайттағы "Болон процесі" бөлімінде орналасқан.',
-        
-        // Контакты
-        'write_to_us': 'Бізге жазыңыз',
-        'full_name': 'Толық аты-жөні',
-        'email': 'Электрондық пошта',
-        'message': 'Хабарлама',
-        'send': 'Жіберу',
-        'address': 'Мекен-жай',
-        'phone': 'Телефон',
-        
-        // Версия для слабовидящих
-        'visually_impaired': 'Көру қабілеті төмен адамдарға арналған нұсқа',
+        faq_title: 'Жиі қойылатын сұрақтар',
+        faq_question1: 'Мойындауға өтініш қалай беруге болады?',
+        faq_answer1: 'Сіз өтініш беру формасын толтырып, қажетті құжаттарды қоса отырып, біздің сайт арқылы онлайн өтініш бере аласыз. Процесс 15 минуттан аспайды.',
+        faq_question2: 'Аккредитация үшін қандай құжаттар қажет?',
+        faq_answer2: 'Құжаттар тізімі аккредитация түріне байланысты. Біздің сайттағы сәйкес бөлімде егжей-тегжейлі талаптармен танысыңыз.',
+        faq_question3: 'Болон процесі туралы ақпаратты қайдан табуға болады?',
+        faq_answer3: 'Болон процесі туралы барлық ағымдағы ақпарат сайттағы арнайы бөлімде орналасқан. Онда сіз соңғы жаңалықтар мен өзгерістерді таба аласыз.',
+        faq_more: 'Қосымша сұрақтар мен жауаптар',
 
-        // Форма заявки
-        'Онлайн-заявка': 'Онлайн өтініш',
-        'Подайте заявку на признание документов об образовании': 'Білім туралы құжаттарды мойындау бойынша өтініш беріңіз',
-        'Личные данные': 'Жеке деректер',
-        'Фамилия': 'Тегі',
-        'Имя': 'Аты',
-        'Отчество': 'Әкесінің аты',
-        'Дата рождения': 'Туған күні',
-        'Контактная информация': 'Байланыс ақпараты',
-        'Email': 'Email',
-        'Телефон': 'Телефон',
-        'Документы об образовании': 'Білім туралы құжаттар',
-        'Тип образования': 'Білім түрі',
-        'Выберите тип образования': 'Білім түрін таңдаңыз',
-        'Бакалавриат': 'Бакалавриат',
-        'Магистратура': 'Магистратура',
-        'Докторантура': 'Докторантура',
-        'Загрузите документ': 'Құжат жүктеңіз',
-        'Поддерживаемые форматы: PDF, JPG, PNG': 'Қолданылатын форматтар: PDF, JPG, PNG',
-        'Дополнительная информация': 'Қосымша ақпарат',
-        'Комментарии': 'Түсініктемелер',
-        'Я согласен с условиями обработки персональных данных': 'Жеке деректерді өңдеу шарттарымен келісемін',
-        'Отправить заявку': 'Өтініш жіберу',
+        // Контакты
+        contacts_title: 'Байланыстар',
+        address_title: 'Мекен-жай',
+        address: 'Астана қ., Сығанақ көш., 70, 202-офис',
+        phone_title: 'Телефон',
+        phone: '+7 (7172) 57-20-75',
+        email_title: 'Email',
+        email: 'cbpiam@n-k.kz',
+        write_us: 'Бізге жазыңыз',
+        full_name: 'Толық аты-жөні',
+        your_name: 'Сіздің атыңыз',
+        email_address: 'Электрондық пошта мекен-жайы',
+        email_placeholder: 'E-mail',
+        message: 'Хабарлама',
+        your_message: 'Сіздің хабарламаңыз',
+        send_message: 'Хабарлама жіберу',
+        map_title: 'Біз картада',
 
         // Чат-бот
-        'Чат-бот': 'Чат-бот',
-        'Здравствуйте! Чем я могу вам помочь?': 'Сәлем! Сізге қалай көмектесе аламын?',
-        'Задать вопрос': 'Сұрақ қою',
-        'Введите ваш вопрос': 'Сұрағыңызды енгізіңіз',
-        'Отправить': 'Жіберу',
-        'Закрыть': 'Жабу',
+        chat_welcome: 'Қош келдіңіз! Сізге қалай көмектесе аламын?',
+        chat_placeholder: 'Хабарламаны енгізіңіз...',
+        chat_send: 'Жіберу',
+        chat_close: 'Жабу',
+        chat_title: 'Онлайн-консультант',
+        
+        // Подвал
+        footer_about: 'Біз туралы',
+        footer_services: 'Қызметтер',
+        footer_news: 'Жаңалықтар',
+        footer_contacts: 'Байланыстар',
+        footer_rights: 'Барлық құқықтар қорғалған',
+        footer_privacy: 'Құпиялылық саясаты',
+        footer_terms: 'Қолдану шарттары',
+        footer_sitemap: 'Сайт картасы',
+        footer_subscribe: 'Жаңалықтарға жазылу',
+        footer_subscribe_placeholder: 'Email мекен-жайыңыз',
+        footer_subscribe_button: 'Жазылу',
+        footer_social_follow: 'Бізді әлеуметтік желілерде қадағалаңыз',
 
-        // Форма обратной связи
-        'Обратная связь': 'Кері байланыс',
-        'Оставьте свой отзыв': 'Пікіріңізді қалдырыңыз',
-        'Ваше имя': 'Сіздің атыңыз',
-        'Ваш email': 'Сіздің email-іңіз',
-        'Ваше сообщение': 'Сіздің хабарламаңыз',
-        'Отправить сообщение': 'Хабарлама жіберу'
+        // Интеграция с egov.kz
+        egov_title: 'egov.kz-пен интеграция',
+        egov_services: 'Электрондық қызметтер',
+        egov_services_desc: 'egov.kz порталы арқылы электрондық форматтағы мемлекеттік қызметтерге қол жеткізіңіз',
+        egov_status: 'Статусты тексеру',
+        egov_status_desc: 'Өтініштеріңіз мен құжаттарыңыздың статусын нақты уақыт режимінде қадағалаңыз',
+        egov_appointment: 'Онлайн-жазылу',
+        egov_appointment_desc: 'Электрондық жүйе арқылы мемлекеттік органдарға жазылыңыз',
+        go_to_egov: 'egov.kz-ге өту',
+        check_status: 'Статусты тексеру',
+        make_appointment: 'Онлайн жазылу'
     },
     ru: {
         // Общие элементы
@@ -346,6 +350,10 @@ const translations = {
         news_read_more: 'Подробнее',
         pagination_prev: 'Предыдущая',
         pagination_next: 'Следующая',
+        news_date: '{{date}} марта 2024',
+        news_tag_education: 'Образование',
+        news_tag_news: 'Новости',
+        news_tag_accreditation: 'Аккредитация',
 
         // Страница контакты
         contacts_subtitle: 'Контактная информация',
@@ -391,68 +399,68 @@ const translations = {
         'bologna_desc': 'Информация о Болонском процессе и системе квалификаций',
         
         // FAQ
-        'faq': 'Часто задаваемые вопросы',
-        'how_to_apply': 'Как подать заявку на признание?',
-        'how_to_apply_answer': 'Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы.',
-        'what_documents': 'Какие документы нужны для аккредитации?',
-        'what_documents_answer': 'Список документов зависит от типа аккредитации. Ознакомьтесь с требованиями в соответствующем разделе.',
-        'bologna_info': 'Где найти информацию о Болонском процессе?',
-        'bologna_info_answer': 'Вся информация размещена в разделе "Болонский процесс" на сайте.',
-        
-        // Контакты
-        'write_to_us': 'Напишите нам',
-        'full_name': 'Полное имя',
-        'email': 'Адрес электронной почты',
-        'message': 'Сообщение',
-        'send': 'Отправить',
-        'address': 'Адрес',
-        'phone': 'Телефон',
-        
-        // Версия для слабовидящих
-        'visually_impaired': 'Версия для слабовидящих',
+        faq_title: 'Часто задаваемые вопросы',
+        faq_question1: 'Как подать заявку на признание?',
+        faq_answer1: 'Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы. Процесс занимает не более 15 минут.',
+        faq_question2: 'Какие документы нужны для аккредитации?',
+        faq_answer2: 'Список документов зависит от типа аккредитации. Ознакомьтесь с подробными требованиями в соответствующем разделе на нашем сайте.',
+        faq_question3: 'Где найти информацию о Болонском процессе?',
+        faq_answer3: 'Вся актуальная информация о Болонском процессе размещена в специальном разделе на сайте. Там вы найдете последние новости и изменения.',
+        faq_more: 'Больше вопросов и ответов',
 
-        // Форма заявки
-        'Онлайн-заявка': 'Онлайн-заявка',
-        'Подайте заявку на признание документов об образовании': 'Подайте заявку на признание документов об образовании',
-        'Личные данные': 'Личные данные',
-        'Фамилия': 'Фамилия',
-        'Имя': 'Имя',
-        'Отчество': 'Отчество',
-        'Дата рождения': 'Дата рождения',
-        'Контактная информация': 'Контактная информация',
-        'Email': 'Email',
-        'Телефон': 'Телефон',
-        'Документы об образовании': 'Документы об образовании',
-        'Тип образования': 'Тип образования',
-        'Выберите тип образования': 'Выберите тип образования',
-        'Бакалавриат': 'Бакалавриат',
-        'Магистратура': 'Магистратура',
-        'Докторантура': 'Докторантура',
-        'Загрузите документ': 'Загрузите документ',
-        'Поддерживаемые форматы: PDF, JPG, PNG': 'Поддерживаемые форматы: PDF, JPG, PNG',
-        'Дополнительная информация': 'Дополнительная информация',
-        'Комментарии': 'Комментарии',
-        'Я согласен с условиями обработки персональных данных': 'Я согласен с условиями обработки персональных данных',
-        'Отправить заявку': 'Отправить заявку',
+        // Контакты
+        contacts_title: 'Контакты',
+        address_title: 'Адрес',
+        address: 'г. Астана, ул. Сыганак, 70, офис 202',
+        phone_title: 'Телефон',
+        phone: '+7 (7172) 57-20-75',
+        email_title: 'Email',
+        email: 'cbpiam@n-k.kz',
+        write_us: 'Напишите нам',
+        full_name: 'Полное имя',
+        your_name: 'Ваше имя',
+        email_address: 'Адрес электронной почты',
+        email_placeholder: 'E-mail',
+        message: 'Сообщение',
+        your_message: 'Ваше сообщение',
+        send_message: 'Отправить сообщение',
+        map_title: 'Мы на карте',
 
         // Чат-бот
-        'Чат-бот': 'Чат-бот',
-        'Здравствуйте! Чем я могу вам помочь?': 'Здравствуйте! Чем я могу вам помочь?',
-        'Задать вопрос': 'Задать вопрос',
-        'Введите ваш вопрос': 'Введите ваш вопрос',
-        'Отправить': 'Отправить',
-        'Закрыть': 'Закрыть',
+        chat_welcome: 'Добро пожаловать! Чем я могу вам помочь?',
+        chat_placeholder: 'Введите сообщение...',
+        chat_send: 'Отправить',
+        chat_close: 'Закрыть',
+        chat_title: 'Online Consultant',
+        
+        // Подвал
+        footer_about: 'О нас',
+        footer_services: 'Услуги',
+        footer_news: 'Новости',
+        footer_contacts: 'Контакты',
+        footer_rights: 'Все права защищены',
+        footer_privacy: 'Политика конфиденциальности',
+        footer_terms: 'Условия использования',
+        footer_sitemap: 'Карта сайта',
+        footer_subscribe: 'Подписаться на новости',
+        footer_subscribe_placeholder: 'Ваш email адрес',
+        footer_subscribe_button: 'Подписаться',
+        footer_social_follow: 'Следите за нами в социальных сетях',
 
-        // Форма обратной связи
-        'Обратная связь': 'Обратная связь',
-        'Оставьте свой отзыв': 'Оставьте свой отзыв',
-        'Ваше имя': 'Ваше имя',
-        'Ваш email': 'Ваш email',
-        'Ваше сообщение': 'Ваше сообщение',
-        'Отправить сообщение': 'Отправить сообщение'
+        // Интеграция с egov.kz
+        egov_title: 'Интеграция с egov.kz',
+        egov_services: 'Электронные услуги',
+        egov_services_desc: 'Получите доступ к государственным услугам в электронном формате через портал egov.kz',
+        egov_status: 'Проверка статуса',
+        egov_status_desc: 'Отслеживайте статус ваших заявок и документов в режиме реального времени',
+        egov_appointment: 'Онлайн-запись',
+        egov_appointment_desc: 'Запишитесь на прием в государственные органы через электронную систему',
+        go_to_egov: 'Перейти на egov.kz',
+        check_status: 'Проверить статус',
+        make_appointment: 'Записаться онлайн'
     },
     en: {
-        // Общие элементы
+        // Common elements
         nav_home: 'Home',
         nav_recognition: 'Recognition',
         nav_accreditation: 'Accreditation',
@@ -460,15 +468,15 @@ const translations = {
         nav_news: 'News',
         nav_contacts: 'Contacts',
         accessibility_btn: 'Version for visually impaired',
-        footer_description: 'National Center for Quality Assessment in Education',
+        footer_description: 'National Center for Educational Quality Assessment',
         footer_links_title: 'Links',
         footer_contact_title: 'Contacts',
-        footer_social_title: 'Social Media',
+        footer_social_title: 'Social Networks',
 
-        // Главная страница
-        page_title: 'NCVO - National Center',
-        hero_title: 'Quality Assessment and Control in Education',
-        hero_description: 'We provide services for quality assessment and control in education',
+        // Main page
+        page_title: 'NCQA - National Center',
+        hero_title: 'Educational Quality Assessment and Control',
+        hero_description: 'We provide services for educational quality assessment and control',
         hero_apply: 'Apply',
         hero_check: 'Check Status',
         services_title: 'Our Services',
@@ -481,16 +489,16 @@ const translations = {
         news_title: 'News',
         news_desc: 'Latest news and events',
 
-        // Страница признания
+        // Recognition page
         recognition_subtitle: 'Recognition of Educational Documents',
-        recognition_description: 'We provide services for the recognition of educational documents',
+        recognition_description: 'We provide services for recognition of educational documents',
         recognition_types_title: 'Types of Recognition',
         recognition_academic_title: 'Academic Recognition',
         recognition_academic_desc: 'Recognition of educational programs',
         recognition_professional_title: 'Professional Recognition',
         recognition_professional_desc: 'Recognition of professional qualifications',
         recognition_calculator_title: 'Recognition Calculator',
-        recognition_education_label: 'Level of Education',
+        recognition_education_label: 'Education Level',
         recognition_country_label: 'Country',
         recognition_calculate: 'Calculate',
         recognition_apply_title: 'Apply',
@@ -501,17 +509,17 @@ const translations = {
         recognition_submit: 'Submit',
         recognition_legal_title: 'Legal Framework',
         recognition_law1: 'Education Law',
-        recognition_law2: 'Rules on Recognition of Educational Documents',
+        recognition_law2: 'Regulations on Recognition of Educational Documents',
         recognition_agreement1: 'Lisbon Convention',
         recognition_agreement2: 'Almaty Convention',
 
-        // Страница аккредитация
+        // Accreditation page
         accreditation_subtitle: 'About Accreditation',
         accreditation_description: 'Accreditation is the process of evaluating and confirming the quality of educational programs',
         accreditation_institutional_title: 'Institutional Accreditation',
-        accreditation_institutional_desc: 'Assessment of the overall quality of educational institutions',
+        accreditation_institutional_desc: 'Assessment of overall quality of educational institutions',
         accreditation_program_title: 'Program Accreditation',
-        accreditation_program_desc: 'Assessment of the quality of educational programs',
+        accreditation_program_desc: 'Assessment of educational program quality',
         accreditation_apply_title: 'Apply for Accreditation',
         accreditation_org_label: 'Organization Name',
         accreditation_type_label: 'Accreditation Type',
@@ -524,36 +532,36 @@ const translations = {
         accreditation_submit: 'Submit Application',
         accreditation_process_title: 'Accreditation Process',
         accreditation_step1_title: 'Application',
-        accreditation_step1_desc: 'Preparation and submission of required documents',
+        accreditation_step1_desc: 'Prepare and submit required documents',
         accreditation_step2_title: 'Review',
         accreditation_step2_desc: 'Document review and preliminary assessment',
         accreditation_step3_title: 'Site Visit',
-        accreditation_step3_desc: 'Site visit by the expert group',
-        accreditation_step4_title: 'Decision Making',
-        accreditation_step4_desc: 'Making a decision on accreditation',
+        accreditation_step3_desc: 'Expert group site visit',
+        accreditation_step4_title: 'Decision',
+        accreditation_step4_desc: 'Accreditation decision',
 
         // Bologna Process page
-        bologna_subtitle: 'About the Bologna Process',
-        bologna_description: 'The Bologna Process is an international cooperation aimed at creating the European Higher Education Area',
-        bologna_principles_title: 'Key Principles of the Bologna Process',
-        bologna_principle1: 'Three-cycle degree system (Bachelor, Master, PhD)',
+        bologna_subtitle: 'About Bologna Process',
+        bologna_description: 'The Bologna Process is an international cooperation aimed at creating a European Higher Education Area',
+        bologna_principles_title: 'Key Principles of Bologna Process',
+        bologna_principle1: 'Three-cycle higher education system (Bachelor, Master, PhD)',
         bologna_principle2: 'Credit system (ECTS)',
         bologna_principle3: 'Diploma recognition',
         bologna_principle4: 'Student and staff mobility',
         bologna_principle5: 'Quality assurance',
-        bologna_benefits_title: 'Benefits of the Bologna Process',
+        bologna_benefits_title: 'Benefits of Bologna Process',
         bologna_benefit1_title: 'Education Quality',
-        bologna_benefit1_desc: 'Improving the quality of educational programs and ensuring their compliance with international standards',
+        bologna_benefit1_desc: 'Improving educational program quality and ensuring compliance with international standards',
         bologna_benefit2_title: 'Mobility Opportunities',
         bologna_benefit2_desc: 'Facilitating international mobility of students and staff',
         bologna_benefit3_title: 'Diploma Recognition',
-        bologna_benefit3_desc: 'Simplifying the process of recognizing educational documents at the international level',
+        bologna_benefit3_desc: 'Simplifying the process of international recognition of educational documents',
         bologna_documents_title: 'Documents',
         bologna_doc1_title: 'Bologna Declaration',
-        bologna_doc1_desc: 'The 1999 Bologna Declaration - the founding document of the Bologna Process',
-        bologna_doc2_title: 'Communiqué on the European Higher Education Area',
-        bologna_doc2_desc: 'Current communications on the development of the Bologna Process',
-        bologna_doc3_title: 'Legislation of the Republic of Kazakhstan',
+        bologna_doc1_desc: '1999 Bologna Declaration - the founding document of the Bologna Process',
+        bologna_doc2_title: 'European Higher Education Area Communiqué',
+        bologna_doc2_desc: 'Current reports on the development of the Bologna Process',
+        bologna_doc3_title: 'Republic of Kazakhstan Legislation',
         bologna_doc3_desc: 'Regulatory documents of the Republic of Kazakhstan related to participation in the Bologna Process',
         bologna_doc_download: 'Download',
 
@@ -564,26 +572,30 @@ const translations = {
         news_category_accreditation: 'Accreditation',
         news_category_bologna: 'Bologna Process',
         news1_title: 'Educational Document Recognition Process Updated',
-        news1_desc: 'New rules have been introduced to simplify the process of recognizing educational documents',
+        news1_desc: 'New rules introduced to simplify the process of recognizing educational documents',
         news2_title: 'New Accreditation Standards Adopted',
-        news2_desc: 'New standards have been introduced for assessing the quality of educational programs',
+        news2_desc: 'New standards introduced for assessing educational program quality',
         news3_title: 'New Phase of Bologna Process Started',
-        news3_desc: 'New goals have been set for the development of the European Higher Education Area',
+        news3_desc: 'New goals set for developing the European Higher Education Area',
         news_read_more: 'Read More',
         pagination_prev: 'Previous',
         pagination_next: 'Next',
+        news_date: '{{date}} March 2024',
+        news_tag_education: 'Education',
+        news_tag_news: 'News',
+        news_tag_accreditation: 'Accreditation',
 
         // Contacts page
         contacts_subtitle: 'Contact Information',
         contacts_address_title: 'Address',
-        contacts_address: '11 Kazhymukan St., Esil District, Astana',
+        contacts_address: '11 Kazhimukan Street, Esil District, Astana',
         contacts_phone_title: 'Phone',
         contacts_email_title: 'Email',
         contacts_hours_title: 'Working Hours',
         contacts_hours: 'Monday - Friday: 09:00 - 18:00',
         contacts_hours_weekend: 'Saturday - Sunday: Closed',
-        contacts_social_title: 'Social Media',
-        contacts_form_title: 'Write to Us',
+        contacts_social_title: 'Social Networks',
+        contacts_form_title: 'Send us a Message',
         contacts_form_name: 'Full Name',
         contacts_form_email: 'Email',
         contacts_form_phone: 'Phone',
@@ -592,90 +604,90 @@ const translations = {
         contacts_form_submit: 'Send',
         contacts_map_title: 'Our Location',
 
-        // Новые элементы
-        'menu': 'Меню',
-        'search': 'Поиск',
-        'contacts': 'Контакты',
-        'about': 'О нас',
-        'news': 'Новости',
-        'services': 'Услуги',
-        'language': 'Язык',
+        // New elements
+        'menu': 'Menu',
+        'search': 'Search',
+        'contacts': 'Contacts',
+        'about': 'About Us',
+        'news': 'News',
+        'services': 'Services',
+        'language': 'Language',
         
-        // Главная страница
-        'main_title': 'НАЦИОНАЛЬНЫЙ ЦЕНТР РАЗВИТИЯ ВЫСШЕГО ОБРАЗОВАНИЯ',
-        'main_subtitle': 'Повышение качества образования и содействие международной интеграции',
-        'apply': 'Подать заявку',
-        'check_status': 'Проверить статус',
-        'find_university': 'Поиск вуза',
+        // Main page
+        'main_title': 'NATIONAL CENTER FOR HIGHER EDUCATION DEVELOPMENT',
+        'main_subtitle': 'Improving educational quality and facilitating international integration',
+        'apply': 'Apply',
+        'check_status': 'Check Status',
+        'find_university': 'Find a University',
         
-        // Сервисы
-        'recognition': 'Признание документов',
-        'recognition_desc': 'Онлайн-форма подачи заявки на признание зарубежных документов об образовании',
-        'accreditation': 'Аккредитация',
-        'accreditation_desc': 'Информация о процедурах аккредитации и доступ к реестрам',
-        'bologna': 'Болонский процесс',
-        'bologna_desc': 'Информация о Болонском процессе и системе квалификаций',
+        // Services
+        'recognition': 'Document Recognition',
+        'recognition_desc': 'Online application form for recognition of foreign educational documents',
+        'accreditation': 'Accreditation',
+        'accreditation_desc': 'Information about accreditation procedures and access to lists',
+        'bologna': 'Bologna Process',
+        'bologna_desc': 'Information about the Bologna Process and qualification system',
         
         // FAQ
-        'faq': 'Часто задаваемые вопросы',
-        'how_to_apply': 'Как подать заявку на признание?',
-        'how_to_apply_answer': 'Вы можете подать заявку онлайн через наш сайт, заполнив форму и прикрепив необходимые документы.',
-        'what_documents': 'Какие документы нужны для аккредитации?',
-        'what_documents_answer': 'Список документов зависит от типа аккредитации. Ознакомьтесь с требованиями в соответствующем разделе.',
-        'bologna_info': 'Где найти информацию о Болонском процессе?',
-        'bologna_info_answer': 'Вся информация размещена в разделе "Болонский процесс" на сайте.',
-        
-        // Контакты
-        'write_to_us': 'Напишите нам',
-        'full_name': 'Полное имя',
-        'email': 'Адрес электронной почты',
-        'message': 'Сообщение',
-        'send': 'Отправить',
-        'address': 'Адрес',
-        'phone': 'Телефон',
-        
-        // Версия для слабовидящих
-        'visually_impaired': 'Версия для слабовидящих',
+        faq_title: 'Frequently Asked Questions',
+        faq_question1: 'How to apply for recognition?',
+        faq_answer1: 'You can apply online through our website by filling out the form and attaching the necessary documents. The process takes no more than 15 minutes.',
+        faq_question2: 'What documents are needed for accreditation?',
+        faq_answer2: 'The list of documents depends on the type of accreditation. Check the detailed requirements in the corresponding section on our website.',
+        faq_question3: 'Where to find information about the Bologna Process?',
+        faq_answer3: 'All current information about the Bologna Process is posted in a special section on the website. There you will find the latest news and changes.',
+        faq_more: 'More Questions and Answers',
 
-        // Форма заявки
-        'Онлайн-заявка': 'Online Application',
-        'Подайте заявку на признание документов об образовании': 'Submit an application for recognition of educational documents',
-        'Личные данные': 'Personal Information',
-        'Фамилия': 'Last Name',
-        'Имя': 'First Name',
-        'Отчество': 'Middle Name',
-        'Дата рождения': 'Date of Birth',
-        'Контактная информация': 'Contact Information',
-        'Email': 'Email',
-        'Телефон': 'Phone',
-        'Документы об образовании': 'Educational Documents',
-        'Тип образования': 'Education Type',
-        'Выберите тип образования': 'Select education type',
-        'Бакалавриат': 'Bachelor\'s Degree',
-        'Магистратура': 'Master\'s Degree',
-        'Докторантура': 'PhD',
-        'Загрузите документ': 'Upload Document',
-        'Поддерживаемые форматы: PDF, JPG, PNG': 'Supported formats: PDF, JPG, PNG',
-        'Дополнительная информация': 'Additional Information',
-        'Комментарии': 'Comments',
-        'Я согласен с условиями обработки персональных данных': 'I agree to the terms of personal data processing',
-        'Отправить заявку': 'Submit Application',
+        // Контакты
+        contacts_title: 'Contacts',
+        address_title: 'Address',
+        address: '70 Syganak St., Office 202, Astana',
+        phone_title: 'Phone',
+        phone: '+7 (7172) 57-20-75',
+        email_title: 'Email',
+        email: 'cbpiam@n-k.kz',
+        write_us: 'Write to Us',
+        full_name: 'Full Name',
+        your_name: 'Your Name',
+        email_address: 'Email Address',
+        email_placeholder: 'E-mail',
+        message: 'Message',
+        your_message: 'Your Message',
+        send_message: 'Send Message',
+        map_title: 'We are on the Map',
 
         // Чат-бот
-        'Чат-бот': 'Chat Bot',
-        'Здравствуйте! Чем я могу вам помочь?': 'Hello! How can I help you?',
-        'Задать вопрос': 'Ask a Question',
-        'Введите ваш вопрос': 'Enter your question',
-        'Отправить': 'Send',
-        'Закрыть': 'Close',
+        chat_welcome: 'Welcome! How can I help you?',
+        chat_placeholder: 'Enter your message...',
+        chat_send: 'Send',
+        chat_close: 'Close',
+        chat_title: 'Online Consultant',
+        
+        // Подвал
+        footer_about: 'About Us',
+        footer_services: 'Services',
+        footer_news: 'News',
+        footer_contacts: 'Contacts',
+        footer_rights: 'All rights reserved',
+        footer_privacy: 'Privacy Policy',
+        footer_terms: 'Terms of Use',
+        footer_sitemap: 'Sitemap',
+        footer_subscribe: 'Subscribe to news',
+        footer_subscribe_placeholder: 'Your email address',
+        footer_subscribe_button: 'Subscribe',
+        footer_social_follow: 'Follow us on social media',
 
-        // Форма обратной связи
-        'Обратная связь': 'Feedback',
-        'Оставьте свой отзыв': 'Leave your feedback',
-        'Ваше имя': 'Your name',
-        'Ваш email': 'Your email',
-        'Ваше сообщение': 'Your message',
-        'Отправить сообщение': 'Send message'
+        // Интеграция с egov.kz
+        egov_title: 'Integration with egov.kz',
+        egov_services: 'Electronic Services',
+        egov_services_desc: 'Get access to government services in electronic format through the egov.kz portal',
+        egov_status: 'Status Check',
+        egov_status_desc: 'Track the status of your applications and documents in real time',
+        egov_appointment: 'Online Appointment',
+        egov_appointment_desc: 'Schedule an appointment with government agencies through the electronic system',
+        go_to_egov: 'Go to egov.kz',
+        check_status: 'Check Status',
+        make_appointment: 'Schedule Online'
     }
 };
 
@@ -693,7 +705,14 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            if (element.tagName === 'INPUT' && element.type === 'text') {
+                element.placeholder = translations[lang][key];
+            } else if (key === 'news_date') {
+                const date = element.textContent.split(' ')[0];
+                element.textContent = translations[lang][key].replace('{{date}}', date);
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
     });
 }
@@ -702,7 +721,9 @@ function setLanguage(lang) {
 document.addEventListener('DOMContentLoaded', function() {
     // Получаем сохраненный язык или используем язык браузера
     const savedLang = localStorage.getItem('language') || navigator.language.split('-')[0];
-    setLanguage(savedLang === 'kk' ? 'kk' : 'ru');
+    // Проверяем, поддерживается ли язык
+    const supportedLang = ['kk', 'ru', 'en'].includes(savedLang) ? savedLang : 'ru';
+    setLanguage(supportedLang);
     
     // Добавляем обработчики для переключателей языка
     document.querySelectorAll('.language-switch').forEach(function(switchElement) {

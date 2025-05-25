@@ -1,9 +1,3 @@
-// Configuration
-const config = {
-    apiKey: 'AIzaSyDDV62hmoTZAU45LkooplvpYejElR73bck',
-    apiUrl: 'https://translation.googleapis.com/language/translate/v2'
-};
-
 // Language codes mapping
 const languageCodes = {
     'kk': 'kk', // Kazakh
@@ -46,67 +40,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Function to change language using Google Translate API
-async function changeLanguage(lang) {
+// Function to change language using local translations
+function changeLanguage(lang) {
     console.log('Changing language to:', lang);
     
     document.documentElement.lang = lang;
     
     // Все элементы с data-translate
     const elements = document.querySelectorAll('[data-translate]');
-    // Кнопки
-    const buttonElements = document.querySelectorAll('button[data-translate], input[type="button"][data-translate], input[type="submit"][data-translate]');
-    // Опции в select
-    const optionElements = document.querySelectorAll('select option[data-translate]');
     
-    // Собираем тексты для перевода
-    const texts = [
-        ...Array.from(elements).map(el => el.textContent),
-        ...Array.from(buttonElements).map(el => el.tagName === 'BUTTON' ? el.textContent : el.value),
-        ...Array.from(optionElements).map(el => el.textContent)
-    ];
-    console.log('Texts to translate:', texts);
-    
-    try {
-        const sourceLang = lang === 'kk' ? 'en' : 'kk';
-        const response = await fetch(`${config.apiUrl}?key=${config.apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                q: texts,
-                source: sourceLang,
-                target: languageCodes[lang],
-                format: 'text'
-            })
-        });
-        const data = await response.json();
-        if (data.data && data.data.translations) {
-            const translations = data.data.translations.map(t => t.translatedText);
-            let i = 0;
-            // Обычные элементы
-            elements.forEach(el => {
-                el.textContent = translations[i++] || el.textContent;
-            });
-            // Кнопки
-            buttonElements.forEach(el => {
-                if (el.tagName === 'BUTTON') {
-                    el.textContent = translations[i++] || el.textContent;
-                } else {
-                    el.value = translations[i++] || el.value;
-                }
-            });
-            // Опции
-            optionElements.forEach(el => {
-                el.textContent = translations[i++] || el.textContent;
-            });
-        } else {
-            alert('Ошибка перевода: ' + (data.error?.message || 'Неизвестная ошибка'));
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
         }
-    } catch (error) {
-        alert('Произошла ошибка при переводе. Пожалуйста, попробуйте позже.');
-    }
+    });
+    
     localStorage.setItem('preferred_language', lang);
 }
 
@@ -128,13 +77,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Mobile menu
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const headerNav = document.querySelector('.header__nav');
+    const body = document.body;
 
-    if (menuToggle && mainNav) {
+    if (menuToggle && headerNav) {
         menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            this.classList.toggle('active');
+            headerNav.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!headerNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Закрытие меню при изменении размера окна
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                menuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+        });
+
+        // Закрытие меню при клике на ссылку
+        const navLinks = headerNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
         });
     }
 
