@@ -227,7 +227,8 @@ const translations = {
         egov_appointment_desc: 'Электрондық жүйе арқылы мемлекеттік органдарға жазылыңыз',
         go_to_egov: 'egov.kz-ге өту',
         check_status: 'Статусты тексеру',
-        make_appointment: 'Онлайн жазылу'
+        make_appointment: 'Онлайн жазылу',
+        cabinet: 'Жеке кабинет'
     },
     ru: {
         // Общие элементы
@@ -457,7 +458,8 @@ const translations = {
         egov_appointment_desc: 'Запишитесь на прием в государственные органы через электронную систему',
         go_to_egov: 'Перейти на egov.kz',
         check_status: 'Проверить статус',
-        make_appointment: 'Записаться онлайн'
+        make_appointment: 'Записаться онлайн',
+        cabinet: 'Личный кабинет'
     },
     en: {
         // Common elements
@@ -687,7 +689,8 @@ const translations = {
         egov_appointment_desc: 'Schedule an appointment with government agencies through the electronic system',
         go_to_egov: 'Go to egov.kz',
         check_status: 'Check Status',
-        make_appointment: 'Schedule Online'
+        make_appointment: 'Schedule Online',
+        cabinet: 'Personal Cabinet'
     }
 };
 

@@ -5,6 +5,19 @@ function loadHeader() {
         .then(html => {
             document.getElementById('header').innerHTML = html;
             initHeader();
+            // Отладка
+            console.log('Header loaded');
+            const link = document.getElementById('cabinet-link');
+            console.log('cabinet-link:', link);
+            fetch('/session_status.php')
+              .then(res => res.json())
+              .then(data => {
+                console.log('Session status:', data);
+                if (link) {
+                  link.href = data.logged_in ? 'user/index.php' : 'login.php';
+                  console.log('Set href:', link.href);
+                }
+              });
         });
 }
 
@@ -122,46 +135,6 @@ function switchLanguage(lang) {
     // Отправляем событие о смене языка
     document.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
 }
-
-// Словарь переводов
-const translations = {
-    ru: {
-        home: 'Главная',
-        recognition: 'Признание',
-        accreditation: 'Аккредитация',
-        bologna: 'Болонский процесс',
-        news: 'Новости',
-        contacts: 'Контакты',
-        apply: 'Подать заявку',
-        visually_impaired: 'Версия для слабовидящих',
-        phone: '+7 (727) 123-45-67',
-        email: 'info@enic.kz'
-    },
-    kk: {
-        home: 'Басты бет',
-        recognition: 'Мойындау',
-        accreditation: 'Аккредитация',
-        bologna: 'Болон процесі',
-        news: 'Жаңалықтар',
-        contacts: 'Байланыстар',
-        apply: 'Өтініш беру',
-        visually_impaired: 'Көру қабілеті төмен адамдарға арналған нұсқа',
-        phone: '+7 (727) 123-45-67',
-        email: 'info@enic.kz'
-    },
-    en: {
-        home: 'Home',
-        recognition: 'Recognition',
-        accreditation: 'Accreditation',
-        bologna: 'Bologna Process',
-        news: 'News',
-        contacts: 'Contacts',
-        apply: 'Apply',
-        visually_impaired: 'Visually Impaired Version',
-        phone: '+7 (727) 123-45-67',
-        email: 'info@enic.kz'
-    }
-};
 
 // Загружаем шапку при загрузке страницы
 document.addEventListener('DOMContentLoaded', loadHeader); 

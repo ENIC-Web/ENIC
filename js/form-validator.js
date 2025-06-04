@@ -126,7 +126,7 @@ class FormValidator {
 
 // Инициализация валидации для всех форм
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('form').forEach(form => {
+    document.querySelectorAll('form:not(#applicationForm)').forEach(form => {
         new FormValidator(form);
     });
 }); 

@@ -1,5 +1,10 @@
-// Загрузка шапки и подвала
-fetch('header.html')
+// Определяем относительный путь к header/footer
+let prefix = '';
+if (window.location.pathname.match(/\/user\//)) {
+    prefix = '../';
+}
+
+fetch(prefix + 'header.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('header').innerHTML = data;
@@ -8,7 +13,7 @@ fetch('header.html')
         document.dispatchEvent(event);
     });
 
-fetch('footer.html')
+fetch(prefix + 'footer.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('footer').innerHTML = data;
