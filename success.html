@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate>Заявка отправлена - ENIC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Подключаем шапку -->
+    <div id="header"></div>
+
+    <main>
+        <section class="success-message">
+            <div class="container">
+                <div class="success-content">
+                    <div class="success-icon">✓</div>
+                    <h1 data-translate>Заявка успешно отправлена!</h1>
+                    <p data-translate>Спасибо за вашу заявку. Мы свяжемся с вами в ближайшее время.</p>
+                    <div class="success-actions">
+                        <a href="index.html" class="btn btn-primary" data-translate>Вернуться на главную</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подключаем подвал -->
+    <footer class="footer" id="footer"></footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/mobile-nav.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header-footer-upload.js"></script>
+
+    <style>
+        .success-message {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .success-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(26,59,110,0.07);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: var(--color-secondary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-content h1 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .success-content p {
+            color: var(--color-text);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .success-actions {
+            margin-top: 40px;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .success-message {
+                padding: 60px 0;
+            }
+
+            .success-content {
+                padding: 30px 20px;
+            }
+
+            .success-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .success-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</body>
+</html> 

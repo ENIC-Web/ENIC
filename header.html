@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <header class="header">
     <div class="header__top">
         <div class="container">
@@ -63,12 +64,12 @@
                 </a>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li><a href="index.html" data-translate="nav_home">Главная</a></li>
-                        <li><a href="recognition.html" data-translate="recognition">Признание</a></li>
-                        <li><a href="accreditation.html" data-translate="accreditation">Аккредитация</a></li>
-                        <li><a href="bologna.html" data-translate="bologna">Болонский процесс</a></li>
-                        <li><a href="news.html" data-translate="news">Новости</a></li>
-                        <li><a href="contacts.html" data-translate="contacts">Контакты</a></li>
+                        <li><a href="../index.html" data-translate="nav_home">Главная</a></li>
+                        <li><a href="../recognition.html" data-translate="recognition">Признание</a></li>
+                        <li><a href="../accreditation.html" data-translate="accreditation">Аккредитация</a></li>
+                        <li><a href="../bologna.html" data-translate="bologna">Болонский процесс</a></li>
+                        <li><a href="../news.html" data-translate="news">Новости</a></li>
+                        <li><a href="../contacts.html" data-translate="contacts">Контакты</a></li>
                     </ul>
                     <!-- Мобильные элементы управления -->
                     <div class="mobile-controls">
@@ -87,7 +88,8 @@
                     </div>
                 </nav>
                 <div class="header__actions">
-                    <a href="application.html" class="btn btn-primary1" data-translate="apply">Подать заявку</a>
+                    <a href="../application.html" class="btn btn-primary1" data-translate="apply">Подать заявку</a>
+                    <a href="#" id="cabinet-link" class="btn btn-outline" data-translate="cabinet">Личный кабинет</a>
                     <button class="header__menu-toggle" aria-label="Меню">
                         <span></span>
                         <span></span>

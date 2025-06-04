@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('applicationForm');
-    if (!form) return;
+    if (!form || form.closest('.application-form')) return;  // Пропускаем форму заявки
 
     // Регулярные выражения для валидации
     const patterns = {

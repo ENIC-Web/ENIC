@@ -124,9 +124,166 @@
 
     <script src="js/translations.js"></script>
     <script src="js/mobile-nav.js"></script>
-    <script src="js/form-validation.js"></script>
     <script src="js/header.js"></script>
     <script src="js/header-footer-upload.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('applicationForm');
+        const fileInput = document.getElementById('documentFile');
+        const fileUploadDiv = fileInput.closest('.file-upload');
+        const formGroup = fileInput.closest('.form-group');
+        let isSubmitting = false;
+
+        // Регулярные выражения для валидации
+        const patterns = {
+            name: /^[А-ЯЁа-яё\s-]{2,50}$/,
+            email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            phone: /^\+7\s?\(?\d{3}\)?\s?\d{3}[- ]?\d{2}[- ]?\d{2}$/
+        };
+        // Сообщения об ошибках
+        const errorMessages = {
+            required: 'Это поле обязательно для заполнения',
+            name: 'Введите корректное имя (только буквы, дефис и пробел)',
+            email: 'Введите корректный email адрес',
+            phone: 'Введите номер телефона в формате +7 (XXX) XXX-XX-XX',
+            file: 'Загрузите документ в формате PDF, JPG или PNG',
+            agreement: 'Необходимо согласиться с условиями'
+        };
+
+        function validateField(field) {
+            const value = field.type === 'checkbox' ? field.checked : field.value.trim();
+            const name = field.name;
+            let isValid = true;
+            let errorMessage = '';
+
+            if (field.required && (!value || (field.type === 'checkbox' && !field.checked))) {
+                isValid = false;
+                errorMessage = errorMessages.required;
+            }
+            if (isValid && value) {
+                switch (name) {
+                    case 'lastName':
+                    case 'firstName':
+                        if (!patterns.name.test(value)) {
+                            isValid = false;
+                            errorMessage = errorMessages.name;
+                        }
+                        break;
+                    case 'email':
+                        if (!patterns.email.test(value)) {
+                            isValid = false;
+                            errorMessage = errorMessages.email;
+                        }
+                        break;
+                    case 'phone':
+                        if (!patterns.phone.test(value)) {
+                            isValid = false;
+                            errorMessage = errorMessages.phone;
+                        }
+                        break;
+                    case 'documentFile':
+                        const file = field.files[0];
+                        if (file) {
+                            const validTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+                            if (!validTypes.includes(file.type)) {
+                                isValid = false;
+                                errorMessage = errorMessages.file;
+                            }
+                        } else {
+                            isValid = false;
+                            errorMessage = errorMessages.file;
+                        }
+                        break;
+                    case 'agreement':
+                        if (!field.checked) {
+                            isValid = false;
+                            errorMessage = errorMessages.agreement;
+                        }
+                        break;
+                }
+            }
+            // Обновление UI
+            const formGroup = field.closest('.form-group');
+            if (!isValid) {
+                formGroup.classList.add('error');
+                const errorElement = formGroup.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.textContent = errorMessage;
+                }
+            } else {
+                formGroup.classList.remove('error');
+                const errorElement = formGroup.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.textContent = '';
+                }
+            }
+            return isValid;
+        }
+
+        if (!form) return;
+        if (form.dataset.handlerAttached) return;
+        form.dataset.handlerAttached = 'true';
+
+        // Валидация при вводе
+        form.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                validateField(this);
+            });
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+            let isValid = true;
+            const fields = form.querySelectorAll('input, select, textarea');
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+            if (!isValid) {
+                isSubmitting = false;
+                return;
+            }
+            isSubmitting = true;
+            // Создаем объект FormData для отправки файла
+            const formData = new FormData(form);
+            // Отправляем форму
+            fetch('submit_application.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                isSubmitting = false;
+                if (data.success) {
+                    alert('Заявка успешно отправлена!');
+                    form.reset();
+                    window.location.href = 'user/index.php';
+                } else {
+                    alert('Ошибка: ' + data.message);
+                }
+            })
+            .catch(error => {
+                isSubmitting = false;
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при отправке формы');
+            });
+        });
+        // Убираем ошибку при выборе файла
+        fileInput.addEventListener('change', function() {
+            if (this.files.length) {
+                formGroup.classList.remove('error');
+                const errorElement = formGroup.querySelector('.error-message');
+                if (errorElement) errorElement.textContent = '';
+            }
+        });
+    });
+    </script>
 
     <style>
         .application-form {
@@ -282,7 +439,7 @@
 
         .btn-primary {
             background: var(--color-secondary);
-            color: #fff;
+            color: #E55A2A;
             box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
         }
 
@@ -300,7 +457,7 @@
 
         .btn-outline:hover {
             background: var(--color-primary);
-            color: #fff;
+            color: #E55A2A;
             transform: translateY(-2px);
         }
 
@@ -334,37 +491,5 @@
             display: none;
         }
     </style>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('applicationForm');
-        const fileInput = document.getElementById('documentFile');
-        const fileUploadDiv = fileInput.closest('.file-upload');
-        const formGroup = fileInput.closest('.form-group');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Проверяем наличие файла только при отправке формы
-            if (!fileInput.files.length) {
-                formGroup.classList.add('error');
-                return;
-            }
-
-            // Если файл загружен, убираем ошибку
-            formGroup.classList.remove('error');
-            
-            // Здесь можно добавить отправку формы
-            console.log('Форма отправлена');
-        });
-
-        // Убираем ошибку при выборе файла
-        fileInput.addEventListener('change', function() {
-            if (this.files.length) {
-                formGroup.classList.remove('error');
-            }
-        });
-    });
-    </script>
 </body>
 </html> 
